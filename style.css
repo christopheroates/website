@@ -1,0 +1,224 @@
+/* ============================================================
+   style.css  —  shared stylesheet for every page on the site
+   ============================================================ */
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #1a1a1a;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0.4em;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 2em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.2em;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+nav.site-nav {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding: 18px 0;
+}
+
+nav.site-nav ul {
+  list-style: none;
+  /* Centred the same way as the .page container below (760px), but
+     deliberately a bit NARROWER (620px) so the 8 menu items wrap
+     onto two more evenly balanced lines instead of leaving just one
+     item stranded on the second line. If you add/remove a menu item
+     later and the wrap looks lopsided again, nudge this number up or
+     down by ~40-60px until it balances. */
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+nav.site-nav a {
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+nav.site-nav a.current {
+  border-bottom: 2px solid #0056b3;
+}
+
+.profile {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.profile img {
+  width: 180px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.profile .intro {
+  flex: 1;
+  min-width: 260px;
+}
+
+ul.entry-list {
+  padding-left: 1.1em;
+  margin-top: 0.6em;
+}
+
+ul.entry-list li {
+  margin-bottom: 0.9em;
+}
+
+.meta {
+  color: #555;
+  font-size: 0.92rem;
+}
+
+/* Paper titles on papers.html are no longer links (only the badge
+   buttons are clickable), but should still stand out in the same
+   dark blue used for links elsewhere on the site. */
+.paper-title {
+  color: #0b3d6e;
+}
+
+/* ------------------------------------------------------------
+   5b. LINK BADGES (small icon+label pills replacing old-style
+   bracket links like "[arXiv]" or "[Web]"). Each badge is an
+   <a class="link-badge"> containing a Tabler icon <i> plus the
+   label text — see any page's <head> for the Tabler icon font
+   stylesheet link, and the HTML comments near the top of
+   papers.html for how to add a new one.
+   ------------------------------------------------------------ */
+.link-badge {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  gap: 4px;
+  border-radius: 999px;
+  padding: 4px 10px 3px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 0.78rem;
+  text-decoration: none;
+  vertical-align: middle;
+  /* fallback colour if a type-* class below is ever missing */
+  background: #f1efe8;
+  color: #444441;
+}
+
+.link-badge .badge-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  /* SVG icons inherit their colour from the badge's own text colour,
+     so each link type's icon automatically matches its pill colour
+     (see the .type-* rules below) with no extra CSS needed per icon. */
+  color: currentColor;
+}
+
+.link-badge:hover {
+  filter: brightness(0.95);
+  text-decoration: none;
+}
+
+/* One colour per link type, so arXiv / Journal / Web / Video / etc are
+   distinguishable at a glance without reading the label. To add a new
+   type: pick a background/text pair below, then in the .html file add
+   class="link-badge type-yourtype" to the <a> tag. */
+.link-badge.type-arxiv    { background: #faece7; color: #712b13; } /* coral  */
+.link-badge.type-web      { background: #e6f1fb; color: #0c447c; } /* blue   */
+.link-badge.type-journal  { background: #e1f5ee; color: #085041; } /* teal   */
+.link-badge.type-video    { background: #fcebeb; color: #791f1f; } /* red    */
+.link-badge.type-software { background: #eaf3de; color: #27500a; } /* green  */
+.link-badge.type-slides   { background: #faeeda; color: #633806; } /* amber  */
+.link-badge.type-pdf      { background: #f1efe8; color: #444441; } /* gray   */
+.link-badge.type-book     { background: #eeedfe; color: #3c3489; } /* purple */
+.link-badge.type-article  { background: #fbeaf0; color: #72243e; } /* pink   */
+.link-badge.type-other    { background: #f1efe8; color: #444441; } /* gray   */
+
+footer.site-footer {
+  margin-top: 60px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.bar-row .bar-label {
+  width: 60px;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.bar-row .bar-track {
+  flex: 1;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar-row .bar-fill {
+  background: #0056b3;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--
+  =============================================================
+  presentations.html — talks, grouped by year, newest first.
+  Same pattern as papers.html: an <h2> per year, a bulleted
+  <ul class="entry-list"> underneath. Copy an existing <li> to
+  add a new talk.
+
+  ENTRIES WITH LINK BUTTONS
+  ---------------------------
+  A talk with one or more small pill-shaped link buttons is laid
+  out over a few lines for readability:
+
+    <li>
+      Plain-text description of the talk, venue, and date.
+      <a href="URL" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+
+  Add one <a class="link-badge type-X">...</a> line per button.
+  See papers.html's top comment for the full list of badge types
+  and their matching icon-* names — the icon shapes themselves
+  are defined once, near the top of <body>, in the "Shared icon
+  sprite" block. Talks with no button (just plain text) stay on
+  one line.
+  =============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentations — Chris Oates</title>
+  <meta name="description" content="Invited talks and presentations by Chris Oates.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ============================================================
+     Shared icon sprite -- every badge icon is defined ONCE here
+     as a <symbol>, then referenced below via a short
+     <svg class="badge-icon"><use href="#icon-name"/></svg> instead
+     of repeating the whole icon shape every time. This block is
+     never shown directly (display:none). Adding a new badge type?
+     Add a new <symbol id="icon-yourname"> shape here, in the same
+     24x24 outline style, then reference it the same way.
+     ============================================================ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></symbol>
+  <symbol id="icon-world" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></symbol>
+  <symbol id="icon-book-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H3z"/><path d="M21 5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/></symbol>
+  <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></symbol>
+  <symbol id="icon-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/><polyline points="7 12 10 9 13 11 17 7"/></symbol>
+  <symbol id="icon-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="1"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="15" x2="11" y2="15"/><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8"/></symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><line x1="8" y1="3" x2="8" y2="21"/></symbol>
+  <symbol id="icon-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5" fill="currentColor" stroke="none"/><polyline points="4 17 9 12 14 17 16 15 20 19"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6L4.5 18a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><line x1="7" y1="15" x2="17" y2="15"/></symbol>
+  <symbol id="icon-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><text x="6.3" y="17.5" font-size="6.5" font-family="Arial, sans-serif" font-weight="bold" fill="currentColor" stroke="none">PDF</text></symbol>
+</svg>
+
+
+<nav class="site-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="professional.html">Professional</a></li>
+    <li><a href="papers.html">Papers</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="presentations.html" class="current">Presentations</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="carbon.html">Carbon</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <h1>Presentations</h1>
+
+  <h2>2026</h2>
+  <ul class="entry-list">
+    <li>
+      TBA. <strong>Stein's Method and its Statistical Applications</strong>, December 2026, ESSEC Business School, Paris, France.
+      <a href="https://sites.google.com/essec.edu/steins-method-and-applications/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      TBA. <strong>Rethinking the Role of Bayesianism in the Age of Modern AI</strong>, University of Edinburgh, UK.
+      <a href="https://workshops.inf.ed.ac.uk/ml/bayesai/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      TBA. <strong>Data-driven Modeling, Simulation and Inference for Neurobiological Problems</strong>, National Institute for Theory and Mathematics in Biology, Chicago, IL, USA.
+      <a href="https://www.nitmb.org/neurobio-problems-workshop" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Computational Methods for Optimisation over Distributions. <strong>Guest Lecturer</strong>, August 2026, University of Sydney, Australia.</li>
+    <li>Predictively-Oriented Posteriors. <strong>Guest Lecturer</strong>, August 2026, University of Sydney, Australia.</li>
+    <li>Generalised Bayes and Beyond. <strong>Guest Lecturer</strong>, August 2026, University of Sydney, Australia.</li>
+    <li>TBA. <strong>Statistics Seminar Series</strong>, August 2026, University of New South Wales, Australia.</li>
+    <li>
+      A Computable Measure of Suboptimality for Entropy-Regularised Variational Objectives. <strong>MCQMC</strong>, June 2026, University of Edinburgh, UK.
+      <a href="https://maths.ed.ac.uk/events/mcqmc-2026" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Optimisation and Post-Bayesian Inference in Machine Learning. <strong>Panel Discussion</strong>, May 2026, AISTATS, Tangiers, Morocco.
+      <a href="https://optimal-workshop26.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Detecting Model Misspecification in Bayesian Inverse Problems via Variational Gradient Descent. <strong>Optimisation and Post-Bayesian Inference in Machine Learning</strong>, May 2026, AISTATS, Tangiers, Morocco.
+      <a href="https://optimal-workshop26.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>An Introduction to Predictively-Oriented Posteriors. <strong>Statistics Seminar</strong>, January 2026, Newcastle University, UK.</li>
+    <li>
+      Mathematical models for real world systems should (often) not be given the Bayesian treatment. <strong>Mathematics of Real World Systems CDT Seminar</strong>, January 2026, University of Warwick, UK.
+      <a href="https://warwick.ac.uk/fac/sci/mathsys/forums_2025-26/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+  </ul>
+
+  <h2>2025</h2>
+  <ul class="entry-list">
+    <li>Problems with Digital Twins. <strong>Meeting of the RSS North East</strong>, December 2025, Durham University, UK.</li>
+    <li>
+      Optimisation on Probability Distributions - Are We There Yet? <strong>Computational Mathematics and Applications Seminar</strong>, November 2025, University of Oxford, UK.
+      <a href="https://www.maths.ox.ac.uk/node/72720" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Stationary MMD Points for Cubature. <strong>Numerical Linear Algebra Group</strong>, November 2025, University of Oxford, UK.</li>
+    <li>
+      Stein Discrepancy is a Variational Gradient. <strong>Linking Geometry and Statistics: Beyond a Mere Coincidence?</strong>, September 2025, The Alan Turing Institute, UK.
+      <a href="https://www.turing.ac.uk/events/linking-geometry-and-statistics-beyond-mere-coincidence" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      De-randomising the (Mean Field) Langevin Dynamics. <strong>Non-Reversible Sampling: Robustness, Methodology, Applications</strong>, September 2025, Newcastle University, UK.
+      <a href="https://sites.google.com/view/probai-workshop-newcastle/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Automatic Balancing of Numerical Errors in Complex Simulators via Gaussian Process Surrogate Models. <strong>RSS Conference</strong>, September 2025, Edinburgh, UK.
+      <a href="https://rss.org.uk/training-events/conference-2025/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Prediction-Centric Uncertainty Quantification via MMD. <strong>Uncertainty Quantification for Dynamical Modelling</strong>, July 2025, University of Edinburgh, UK.
+      <a href="https://www.maths.ed.ac.uk/~mbrolly2/uqdm/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Probabilistic Richardson Extrapolation. <strong>Bayes Comp</strong>, June 2025, National University of Singapore.
+      <a href="https://bayescomp2025.sg" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Prediction-Centric Uncertainty Quantification via MMD. <strong>Bayesian Computation and Inference with Misspecified Models</strong>, June 2025, National University of Singapore.
+      <a href="https://postbayes.github.io/BayesMisspecificationSatellite/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Probabilistic Richardson Extrapolation. <strong>CRiSM ReLaunch Workshop</strong>, May 2025, University of Warwick, UK.
+      <a href="https://warwick.ac.uk/fac/sci/statistics/news/crism-event2025/programme/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Problems with Digital Twins. <strong>Mathematics Department Colloquium</strong>, May 2025, University of Manchester, UK.</li>
+    <li>Problems with Digital Twins. <strong>Machine Learning Group Meeting</strong>, April 2025, University College London, UK.</li>
+    <li>
+      Beyond Generalised Bayes: Prediction-Centric Alternatives. <strong>Post-Bayesian Seminar Series</strong>, March 2025, Virtual.
+      <a href="https://youtu.be/A_pl_PMWL-g" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+    <li>Prediction-Centric Uncertainty Quantification via MMD. <strong>Statistics Seminar</strong>, March 2025, King's College London, UK.</li>
+    <li>Prediction-Centric Uncertainty Quantification via MMD. <strong>STOR-i Seminar</strong>, February 2025, Lancaster University, UK.</li>
+    <li>Prediction-Centric Uncertainty Quantification via MMD. <strong>Statistics Seminar</strong>, January 2025, Newcastle University, UK.</li>
+    <li>
+      Reinforcement Learning for Adaptive MCMC. <strong>UQSay Seminar</strong>, January 2025, Université Paris Saclay, FR.
+      <a href="https://www.uqsay.org/2025/01/uqsay-81.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+  </ul>
+
+  <h2>2024</h2>
+  <ul class="entry-list">
+    <li>Prediction-Centric Uncertainty Quantification via MMD. <strong>Applied Probability Seminar</strong>, December 2024, Newcastle University, UK.</li>
+    <li>
+      Richardson Extrapolation meets Multi-Fidelity Modelling. <strong>MCQMC</strong>, August 2024, University of Waterloo, CA. [Plenary Talk]
+      <a href="https://uwaterloo.ca/monte-carlo-methods-scientific-computing-conference/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Richardson Extrapolation meets Multi-Fidelity Modelling. <strong>ISBA World Meeting</strong>, July 2024, Ca' Foscari University, Venice, IT.
+      <a href="https://www.unive.it/web/en/2208/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Richardson Extrapolation meets Multi-Fidelity Modelling. <strong>SAMPSCI</strong>, June 2024.
+      <a href="https://sites.google.com/view/sampsci-2024/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Black Box Probabilistic Numerics. <strong>Probabilistic Numerics Spring School</strong>, April 2024, University of Southampton, UK.
+      <a href="https://probnumschool.org/pages/home.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Richardson Extrapolation meets Multi-Fidelity Modelling. <strong>Statistics Seminar Series</strong>, March 2024, University of Edinburgh, UK.</li>
+    <li>Monte Carlo Methods for Text-to-3D. <strong>Statistics Seminar Series</strong>, March 2024, Newcastle University, UK.</li>
+  </ul>
+
+  <h2>2023</h2>
+  <ul class="entry-list">
+    <li>
+      Discussant at the <strong>Young Bayesian's' Meeting</strong>, November 2023, virtual.
+      <a href="https://events.stat.uconn.edu/BAYSM2023/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Probabilistic Richardson Extrapolation. <strong>Next-Generational Kernel Methods</strong>, October 2023, Newcastle University, UK.
+      <a href="https://sites.google.com/view/ngkm-2023/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Sampling with Stein Discrepancies. <strong>Potsdam Data Assimilation Days</strong>, September 2023, University of Potsdam, Berlin, DE.
+      <a href="https://www.sfb1294.de/events/event/potsdam-da-days-2023" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Probabilistic Numerical Methods. <strong>International Congress on Industrial and Applied Mathematics</strong>, August 2023, Waseda University, Tokyo.
+      <a href="https://iciam2023.org" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Sampling with Stein Discrepancies. <strong>Probability for Machine Learning Seminar</strong>, May 2023, University of Oxford, UK.</li>
+    <li>Sampling with Stein Discrepancies. <strong>Mathematics of Information and Data Science Seminar</strong>, March 2023, Heriot-Watt University, UK.</li>
+    <li>
+      Gradient-Free Kernel Stein Discrepancy. <strong>Bayes Comp</strong>, March 2023, Levi, Finland.
+      <a href="https://bayescomp2023.com" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Sampling with Stein Discrepancies. <strong>Mathematical Finance and Stochastic Analysis Seminar</strong>, January 2023, University of York, UK.</li>
+  </ul>
+
+  <h2>2022</h2>
+  <ul class="entry-list">
+    <li>Robust Generalised Bayesian Inference for Intractable Likelihoods. <strong>CMStatistics</strong>, December 2022, London.</li>
+    <li>
+      Black Box Probabilistic Numerics. <strong>Gaussian Process Summer School</strong>, September 2022, University of Sheffield.
+      <a href="http://gpss.cc/gpss22/day-4.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Sampling with Stein Discrepancies. <strong>MCQMC</strong>, July 2022, RICAM, Linz, AU.
+      <a href="https://www.ricam.oeaw.ac.at/events/conferences/mcqmc2022/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Sampling and Stein's Method. <strong>Advances in Stein's method and its applications in Machine Learning and Optimization</strong>, April 2022, Banff, CA.
+      <a href="https://workshops.birs.ca/events/22w5092/schedule" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Optimal Thinning of MCMC Output. <strong>Adaptivity, High Dimensionality and Randomness</strong>, April 2022, Erwin Schrödinger International Institute, Vienna, AU.
+      <a href="https://www.esi.ac.at/events/e423/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Robust Generalised Bayesian Inference for Intractable Likelihoods. <strong>Turing and FCAI Meetup</strong>, February 2022, Finnish Centre for AI, FI.
+      <a href="https://fcai.fi/calendar/2022/2/23/turing-fcai-meetup" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Optimal Thinning of MCMC Output. <strong>DataSig Seminar Series</strong>, February 2022, University of Oxford, UK.</li>
+    <li>
+      Robust Generalised Bayesian Inference for Intractable Likelihoods. <strong>Lifting Inference with Kernel Embeddings</strong>, January 2022, University of Bern, Switzerland.
+      <a href="https://sites.google.com/view/like22/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+      <a href="https://tube.switch.ch/videos/mlsbm20IkU" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+  </ul>
+
+  <h2>2021</h2>
+  <ul class="entry-list">
+    <li>
+      Black Box Probabilistic Numerics. <strong>Probabilistic Numerical Methods - From Theory to Implementation</strong>, October 2021, Schloss Dagstuhl, Germany.
+      <a href="https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=21432" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>Robust Generalised Bayesian Inference for Intractable Likelihoods. <strong>Statistics Seminar Series</strong>, October 2021, University College London, UK.</li>
+    <li>
+      Optimal Thinning of MCMC Output. <strong>Accelerated Statistical Inference for the Sciences</strong>, September 2021, University of Bern, Switzerland.
+      <a href="https://sites.google.com/view/ai4s21/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      Optimal Thinning of MCMC Output. <strong>UQSay Seminar Series</strong>, April 2021, Paris Saclay, France.
+      <a href="https://www.uqsay.org/2021/04/uqsay-28.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
+    </li>
+    <li>
+      A Statistical Perspective on Solving Linear Systems of Equations. <strong>Probability, Statistics, Operations Research and Machine Learning Seminar</strong>, February 2021, Cardiff University, UK.
+      <a href="https://youtu.be/ldk6zWynyN8" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+  </ul>
+
+  <h2>2020</h2>
+  <ul class="entry-list">
+    <li>Statistical Techniques for Engineering with Advanced Materials. <strong>Statistics Seminar Series</strong>, November 2020, Newcastle University, UK.</li>
+    <li>Recasting Sampling as Optimisation via Stein's Method. <strong>Statistics Seminar Series</strong>, November 2020, Athens University of Economics and Business, Greece.</li>
+    <li>Statistical Techniques for Engineering with Advanced Materials. <strong>AI, Data &amp; Analytics Seminar Series</strong>, Stanley Black &amp; Decker, November 2020.</li>
+    <li>A Covariance Function Approach to Prior Specification for Bayesian Neural Networks. <strong>Laplace's Demon Seminar Series</strong>, October 2020, Criteo, France.</li>
+    <li>
+      Recasting Sampling as Optimisation via Stein's Method. <strong>MCQMC</strong>, August 2020, University of Oxford, UK.
+      <a href="https://www.youtube.com/watch?v=TZi6vmL8UUI" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+    <li>
+      Optimal Thinning of MCMC Output. <strong>AI Seminar Series</strong>, August 2020, University College London, UK.
+      <a href="https://youtu.be/pgBt9x3smgE" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+    <li>Stein's Method in Computational Statistics. <strong>Probability and Statistics Seminar Series</strong>, April 2020, University of Bristol, UK.</li>
+    <li>Computational Methods for Bayesian Inference of Cardiac Models. <strong>Statistics Seminar Series</strong>, April 2020, Lancaster University, UK.</li>
+    <li>Fast Bayesian Inference for Differential Equations Using Probabilistic Numerical Methods. <strong>SIAM UQ</strong>, March 2020, Garching, Germany.</li>
+    <li>Gaussian Process Approximation of Deterministic Functions. <strong>Workshop on Emerging Themes in Computational Statistics</strong>, February 2020, Institute of Statistical Mathematics, Tokyo, Japan.</li>
+    <li>Computational Methods for Bayesian Inference of Cardiac Models. <strong>Statistics &amp; Probability Seminar Series</strong>, February 2020, University of Nottingham, UK.</li>
+    <li>Computational Methods for Bayesian Inference of Cardiac Models. <strong>Applied Mathematics Seminar Series</strong>, February 2020, Liverpool John Moores University, UK.</li>
+    <li>Gaussian Process Approximation of Deterministic Functions. <strong>Statistics Seminar Series</strong>, January 2020, Imperial College London, UK.</li>
+  </ul>
+
+  <h2>2019</h2>
+  <ul class="entry-list">
+    <li>Stein Point Markov Chain Monte Carlo. <strong>Statistics Seminar Series</strong>, November 2019, Newcastle University, UK.</li>
+    <li>Stein's Method in Computational Statistics. <strong>Royal Statistical Society of Belgium</strong>, October 2019, St Truiden, Belgium. [Keynote Talk]</li>
+    <li>Stein Point Markov Chain Monte Carlo. <strong>Recent Advances in Kernel Methods</strong>, September 2019, University College London, UK.</li>
+    <li>Stein Point Markov Chain Monte Carlo. <strong>French-German-Swiss Conference on Optimization</strong>, September 2019, Nice, France.</li>
+    <li>Recent Advances in Uncertainty Quantification. <strong>The Fickle Heart</strong>, May 2019, Isaac Newton Institute, Cambridge, UK.</li>
+    <li>Stein's Method in Computational Statistics. <strong>Van Dantzig Seminar</strong>, April 2019, VU Amsterdam, NL.</li>
+    <li>Probabilistic Numerics. <strong>Accenture-Turing Workshop</strong>, April 2019, The Dock, Dublin, Ireland.</li>
+    <li>Panel: Exploring novel opportunities for data science in cardiovascular research. <strong>BHF-Turing Workshop</strong>, February 2019, Alan Turing Institute, UK.</li>
+  </ul>
+
+  <h2>2018</h2>
+  <ul class="entry-list">
+    <li>Stein's Method in Computational Statistics. <strong>RICAM Workshop on Frontier Technologies for High-Dimensional Problems and Uncertainty Quantification</strong>, December 2018, Linz, Austria.</li>
+    <li>What is an Optimal Bayesian Method? <strong>RICAM Workshop on Multivariate Algorithms and Information-Based Complexity</strong>, November 2018, Linz, Austria. [Plenary Talk]</li>
+    <li>Computational Methods in Data Centric Engineering. <strong>CoSInES Opening Workshop</strong>, November 2018, University of Warwick, UK.</li>
+    <li>Stein Points. <strong>Statistics Seminar Series</strong>, October 2018, Newcastle University, UK.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>Statistics Seminar Series</strong>, October 2018, University of Southampton, UK.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>Gatsby Computational Neuroscience Unit Seminar Series</strong>, September 2018, University College London, UK.</li>
+    <li>A Bayes-Sard Cubature Method. <strong>Robotics Institute Seminar Series</strong>, July 2018, University of Oxford, UK.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>Statistics Seminar Series</strong>, July 2018, University of Edinburgh, UK.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>MaxEnt 2018</strong>, July 2018, Alan Turing Institute, London, UK.</li>
+    <li>Stein's Method and Intractable Likelihood. <strong>i-like Workshop</strong>, June 2018, Newcastle University, UK.</li>
+    <li>Posterior Integration and Stein's Method. <strong>SPA2018</strong>, June 2018, Gothenburg, Sweden.</li>
+    <li>Outputs of the Probabilistic Numerics Working Group. <strong>QMC Transition Workshop</strong>, May 2018, SAMSI, North Carolina, USA.</li>
+    <li>Stein's Method in Computational Statistics. <strong>Statistics Seminar Series</strong>, April 2018, University of Leeds, UK.</li>
+    <li>Probabilistic Meshless Methods for PDEs and Bayesian Inverse Problems. <strong>SIAM UQ</strong>, April 2018, Orange County, California, USA.</li>
+    <li>Stein Points. <strong>SIAM UQ</strong>, April 2018, Orange County, California, USA.</li>
+    <li>A Bayesian Conjugate Gradient Method. <strong>Bayes Comp</strong>, March 2018, Barcelona, Spain.</li>
+    <li>A Bayesian Conjugate Gradient Method. <strong>Statistics Seminar Series</strong>, March 2018, Imperial College London, UK.</li>
+    <li>Sampling to Optimisation. <strong>Special Interest Group on Sampling Methods</strong>, February 2018, Alan Turing Institute, London, UK.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>Isaac Newton Institute Workshop on Key UQ Methodologies and Motivating Applications</strong>, January 2018, Cambridge, UK.</li>
+  </ul>
+
+  <h2>2017</h2>
+  <ul class="entry-list">
+    <li>Bayesian Probabilistic Numerical Methods. <strong>Cantab Capital Institute for the Mathematics of Information</strong>, November 2017, Cambridge, UK.</li>
+    <li>Exact Methods for Learning DAGs - A Tutorial. <strong>Statistics Seminar Series</strong>, November 2017, Newcastle University, UK.</li>
+    <li>
+      An Introduction to Probabilistic Numerical Methods. <strong>Turing Data Science Classes</strong>, September 2017, Alan Turing Institute, London, UK.
+      <a href="https://oates.work/s/pn_turing_slides.pdf" class="link-badge type-slides"><svg class="badge-icon" aria-hidden="true"><use href="#icon-slides"/></svg>Slides</a>
+    </li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>SAMSI Programme on Quasi Monte Carlo</strong>, August 2017, Duke University, North Carolina, USA.</li>
+    <li>Bayesian Probabilistic Numerical Methods. <strong>ICERM Workshop on Probabilistic Scientific Computing</strong>, June 2017, Brown University, Rhode Island, USA.</li>
+    <li>An Introduction to Probabilistic Numerical Methods. <strong>Cloud Computing for Big Data CDT Seminar</strong>, May 2017, Newcastle University, UK.</li>
+    <li>Bayesian Probabilistic Numerical Computation. <strong>Statistics and Probability Seminar Series</strong>, March 2017, University of New South Wales, Sydney, Australia.</li>
+    <li>Bayesian Probabilistic Numerical Computation. <strong>HDA2017</strong>, February 2017, University of New South Wales, Sydney, Australia.</li>
+  </ul>
+
+  <h2>2016</h2>
+  <ul class="entry-list">
+    <li>It Works, It Actually Works! <strong>Australian Statistical Conference</strong>, December 2016, Canberra, Australia.</li>
+    <li>Probabilistic Integration for Intractable Distributions. <strong>MCQMC</strong>, August 2016, Stanford, California, USA.</li>
+    <li>Probabilistic Meshless Methods. <strong>School of Mathematical Sciences Colloquium</strong>, August 2016, University of Adelaide, Australia.</li>
+    <li>Probabilistic Meshless Methods. <strong>Statistics and Probability Seminar Series</strong>, July 2016, University of New South Wales, Australia.</li>
+    <li>Stein Operators on Hilbert Spaces. <strong>Business School Seminar Series</strong>, May 2016, University of Sydney, Australia.</li>
+    <li>Stein Operators on Hilbert Spaces. <strong>CSML Seminar Series</strong>, April 2016, University College London, UK.</li>
+    <li>Probabilistic Meshless Methods for Bayesian Inverse Problems. <strong>SIAM Conference on Uncertainty Quantification</strong>, April 2016, Lausanne, Switzerland.</li>
+    <li>The Role of the Statistician in Numerical Analysis. <strong>Mathematics Seminar Series</strong>, February 2016, University of New South Wales, Australia.</li>
+    <li>Variance Reduction for Doubly Intractable Likelihood Problems. <strong>MCMSki V (IMS-ISBA Joint Meeting)</strong>, January 2016, Lenzerheide, Switzerland.</li>
+  </ul>
+
+  <h2>2015</h2>
+  <ul class="entry-list">
+    <li>An Overview of Probabilistic Numerical Methods. <strong>ACEMS Annual Retreat</strong>, November 2015, Adelaide, Australia.</li>
+    <li>Causal Inference and High-Throughput Proteomics. <strong>Work in Progress Sessions</strong>, October 2015, VicBiostat, Australia.</li>
+    <li>Probabilistic Integration. <strong>Mathematics and Statistics Seminar Series</strong>, August 2015, University of Technology Sydney, Australia.</li>
+    <li>Probabilistic Integration. <strong>Statistics Seminar Series</strong>, August 2015, University of Sydney, Australia.</li>
+    <li>Probabilistic Integration. <strong>Mathematics Seminar Series</strong>, July 2015, Queensland University of Technology, Australia.</li>
+    <li>A Formal Generalisation of Bayesian Quadrature. <strong>DALI 2015: Probabilistic Numerics</strong>, April 2015, La Palma (Canaries), Spain.</li>
+    <li>Conditional DAG Models for Proteomic Data Analysis. <strong>DALI 2015: Networks – Processes and Causality</strong>, April 2015, La Palma (Canaries), Spain.</li>
+    <li>Searching for Evidence of Causal Relationships in Real-World Systems. <strong>Oxford and Warwick Statistics Programme</strong>, March 2015, University of Oxford, UK.</li>
+    <li>Control Functionals for Monte Carlo Integration. <strong>Statistics Seminar Series</strong>, February 2015, Newcastle University, UK.</li>
+    <li>Averaging, Revisited. <strong>CSML Seminar Series</strong>, February 2015, University College London, UK.</li>
+    <li>Control Functionals. <strong>Algorithms and Computationally Intensive Inference</strong>, January 2015, University of Warwick, UK.</li>
+  </ul>
+
+  <h2>2014</h2>
+  <ul class="entry-list">
+    <li>Joint Estimation of Multiple Related Biological Networks. <strong>Workshop on Statistical Systems Biology</strong>, December 2014, University of Warwick, UK.</li>
+    <li>Discussion of "Sequential Quasi-Monte Carlo" by Gerber and Chopin. <strong>Meeting of the Royal Statistical Society</strong>, December 2014, Royal Statistical Society, London, UK.</li>
+    <li>Control Functionals: A Surprising Link Between Inverse Problems and Asymptotically Efficient Monte Carlo and Quasi Monte Carlo Integration. <strong>Oxford and Warwick Statistics Programme</strong>, November 2014, University of Oxford, UK.</li>
+    <li>Exact Estimation of Multiple Directed Acyclic Graphs via Integer Linear Programming. <strong>AIGM14</strong>, September 2014, AgroParisTech, Paris, France.</li>
+    <li>Causal Network Inference Using Biochemical Kinetics. <strong>ECCB 2014</strong>, September 2014, Strasbourg, France. [Best Paper Prize]</li>
+    <li>Joint Estimation of Multiple Graphical Models: An Integer Linear Programming Approach. <strong>UK-CIM</strong>, April 2014, University of Cambridge, UK.</li>
+    <li>Joint Structure Learning of Multiple Non-Exchangeable Networks. <strong>AISTATS</strong>, April 2014, Reykjavik, Iceland.</li>
+    <li>An Integer Linear Programming Approach to Causal Inference in Protein Signalling Networks. <strong>MASAMB</strong>, April 2014, University of Sheffield, UK.</li>
+  </ul>
+
+  <h2>2013</h2>
+  <ul class="entry-list">
+    <li>Bayesian Estimation of Multiple Graphical Models. <strong>ERCIM WG on Computational and Methodological Statistics</strong>, December 2013, University of London, UK.</li>
+    <li>Network Inference and Dynamical Prediction Using Biochemical Kinetics. <strong>Dynamics of Biological Networks</strong>, June 2013, University of Edinburgh, UK.</li>
+    <li>Statistical Analysis of Complex Systems in Molecular Biology. <strong>Warwick-Monash Alliance Workshop</strong>, March 2013, Monash University, Melbourne, Australia.</li>
+  </ul>
+
+  <h2>2012</h2>
+  <ul class="entry-list">
+    <li>"What My Cells Say About Yours": Joint Modelling of Network Heterogeneity Across a Panel of Breast Cancer Cell Lines. <strong>Annual Staff Evening of the Netherlands Cancer Institute</strong>, November 2012, Amsterdam, The Netherlands.</li>
+    <li>Network Inference Using Steady State Data and Goldbeter-Koshland Kinetics. <strong>MLSB'12</strong>, September 2012, Basel, Switzerland.</li>
+    <li>Causal Variable Selection Using Equilibrium Relations from Nonlinear Dynamics. <strong>Workshop on Causal Structure Learning, UAI'12</strong>. August 2012, Santa Catalina, CA, USA.</li>
+    <li>Network Inference Using Chemical Kinetics. <strong>Netherlands Bioinformatics Conference (NBIC)</strong>. April 2012, Lunteren, The Netherlands.</li>
+  </ul>
+
+  <h2>2011</h2>
+  <ul class="entry-list">
+    <li>Responsible Interpretation of Large Datasets. <strong>Oncology Graduate School Amsterdam, Annual Retreat</strong>. October 2011, Texel, The Netherlands. [Best Presentation Prize]</li>
+  </ul>
+
+  <footer class="site-footer">
+    <p>&copy; Chris Oates.</p>
+  </footer>
+</div>
+</body>
+</html>
