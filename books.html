@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+  =============================================================
+  books.html — one section per book. Each section is a small
+  cover image plus title, description, authors and links. See
+  index.html for a fuller explanation of the overall site
+  structure.
+  =============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books — Chris Oates</title>
+  <meta name="description" content="Books by Chris Oates.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="professional.html">Professional</a></li>
+    <li><a href="papers.html">Papers</a></li>
+    <li><a href="books.html" class="current">Books</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="carbon.html">Carbon</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <h1>Books</h1>
+
+  <!-- ================= BOOK 1 ================= -->
+  <div class="profile" style="margin-bottom: 40px;">
+    <img src="images/scalable-monte-carlo-cover.jpg" alt="Cover of Scalable Monte Carlo for Bayesian Learning" style="width:140px;">
+    <div class="intro">
+      <h3>Scalable Monte Carlo for Bayesian Learning</h3>
+      <p><a href="https://www.cambridge.org/universitypress/subjects/statistics-probability/statistics-and-probability-general-interest/series/institute-mathematical-statistics-monographs">Institute of Mathematical Statistics Monographs</a>, Cambridge University Press, 2025.</p>
+      <p>A graduate-level introduction to advanced topics in Markov chain Monte Carlo (MCMC), as applied broadly in the Bayesian computational context. The topics covered have emerged as recently as the last decade and include stochastic gradient MCMC, non-reversible MCMC, continuous time MCMC, and new techniques for convergence assessment. A particular focus is on cutting-edge methods that are scalable with respect to either the amount of data, or the data dimension, motivated by the emerging high-priority application areas in machine learning and AI. Examples are woven throughout the text to demonstrate how scalable Bayesian learning methods can be implemented.</p>
+      <ul class="entry-list">
+        <li>Focuses on scalable Bayesian inference techniques for large datasets, making it highly relevant for modern data science and machine learning challenges.</li>
+        <li>Covers cutting-edge MCMC techniques like non-reversible MCMC and piecewise deterministic Markov processes (PDMPs).</li>
+        <li>Provides practical examples to demonstrate how scalable Bayesian learning methods can be implemented.</li>
+      </ul>
+      <p class="meta">ISBN: 9781009288446</p>
+      <p class="meta">Paul Fearnhead (Lancaster University), Christopher Nemeth (Lancaster University), Chris J. Oates (Newcastle University), Chris Sherlock (Lancaster University)</p>
+      <p>
+        <a href="https://www.cambridge.org/us/universitypress/subjects/statistics-probability/applied-probability-and-stochastic-networks/scalable-monte-carlo-bayesian-learning?format=HB&isbn=9781009288446">Order from C.U.P.</a>
+        &nbsp;|&nbsp;
+        <a href="https://arxiv.org/abs/2407.12751">arXiv</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ================= BOOK 2 ================= -->
+  <div class="profile" style="margin-bottom: 40px;">
+    <img src="images/stein-monograph-cover.jpg" alt="Cover of Probabilistic Inference and Learning with Stein's Method" style="width:140px;">
+    <div class="intro">
+      <h3>Probabilistic Inference and Learning with Stein's Method</h3>
+      <p><a href="https://www.emerald.com/ftmal">Foundations and Trends in Machine Learning</a>, TBA.</p>
+      <p>This text provides a rigorous overview of theoretical and methodological aspects of probabilistic inference and learning with Stein's method. Recipes are provided for constructing Stein discrepancies from Stein operators and Stein sets, and properties of these discrepancies such as separation, convergence detection, and convergence control are discussed. Further, the connection between Stein operators and variational gradient descent is set out in detail. The main definitions and results are precisely stated, and references to all proofs are provided.</p>
+      <p class="meta">Qiang Liu (University of Texas at Austin), Lester Mackey (Microsoft Research New England), Chris J. Oates (Newcastle University)</p>
+      <p><a href="https://arxiv.org/abs/2603.07467">arXiv</a></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; Chris Oates.</p>
+  </footer>
+</div>
+</body>
+</html>

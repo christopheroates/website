@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--
+  =============================================================
+  papers.html — the full publication list, grouped by year.
+
+  STRUCTURE OF THIS PAGE
+  -----------------------
+  Each year is an <h2> heading. Under each year is a
+  <ul class="entry-list"> where every paper is one <li>, laid out
+  over a few indented lines so it's easy to scan:
+
+    <li>
+      <span class="paper-title">TITLE</span> — AUTHORS. (YEAR) <strong>VENUE</strong>, extra citation details.
+      <a href="URL" class="link-badge type-X">...</a>
+    </li>
+
+  The title is plain text (styled dark blue by .paper-title in
+  style.css) — it is NOT a link. Only the small pill buttons
+  underneath are clickable. Each paper can have zero, one, or
+  several of these buttons, one per line.
+
+  TO ADD A NEW PAPER
+  -------------------
+  1. Find (or create) the <h2> for the right year.
+  2. Copy the template below, paste it as a new <li> inside that
+     year's <ul class="entry-list">, and fill in the blanks.
+  3. If it's a brand new year, copy this whole block instead and
+     place it just below the "Work in Progress" section (most
+     recent year first):
+
+       <h2>20XX</h2>
+       <ul class="entry-list">
+         <li>...</li>
+       </ul>
+
+  COPY-PASTE TEMPLATE FOR ONE PAPER
+  -----------------------------------
+    <li>
+      <span class="paper-title">Full paper title</span> — Author A, Author B, Oates CJ. (YEAR) <strong>Journal or conference name</strong>, volume/pages if known.
+      <a href="https://arxiv.org/abs/XXXXX" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  Delete the <a> line if there's no link yet, or add more <a> lines
+  (one per line) for extra buttons — see BADGE TYPES below.
+
+  BADGE TYPES (class="link-badge type-X", icon symbol id in brackets)
+  ---------------------------------------------------------------------
+    type-arxiv     [icon-file-text]    coral   "arXiv" / "Preprint"
+    type-journal   [icon-book-2]       teal    "Journal"
+    type-web       [icon-world]        blue    "Web"
+    type-video     [icon-play]         red     "Video"
+    type-software  [icon-code]         green   "Code"
+    type-slides    [icon-slides]       amber   "Slides"
+    type-pdf       [icon-pdf]          gray    "PDF"
+    type-book      [icon-book]         purple  "Book"
+    type-article   [icon-news/icon-photo] pink "Article" / "Photo"
+    type-other     [icon-external-link] gray   anything else
+  The icon shapes themselves are defined once, near the top of
+  <body>, in the "Shared icon sprite" block — see the comment
+  there if you ever need to add a brand new icon.
+  =============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papers — Chris Oates</title>
+  <meta name="description" content="Full list of academic papers by Chris Oates.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ============================================================
+     Shared icon sprite -- every badge icon is defined ONCE here
+     as a <symbol>, then referenced below via a short
+     <svg class="badge-icon"><use href="#icon-name"/></svg> instead
+     of repeating the whole icon shape every time. This block is
+     never shown directly (display:none). Adding a new badge type?
+     Add a new <symbol id="icon-yourname"> shape here, in the same
+     24x24 outline style, then reference it the same way.
+     ============================================================ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></symbol>
+  <symbol id="icon-world" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></symbol>
+  <symbol id="icon-book-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H3z"/><path d="M21 5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/></symbol>
+  <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></symbol>
+  <symbol id="icon-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/><polyline points="7 12 10 9 13 11 17 7"/></symbol>
+  <symbol id="icon-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="1"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="15" x2="11" y2="15"/><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8"/></symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><line x1="8" y1="3" x2="8" y2="21"/></symbol>
+  <symbol id="icon-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5" fill="currentColor" stroke="none"/><polyline points="4 17 9 12 14 17 16 15 20 19"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6L4.5 18a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><line x1="7" y1="15" x2="17" y2="15"/></symbol>
+  <symbol id="icon-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><text x="6.3" y="17.5" font-size="6.5" font-family="Arial, sans-serif" font-weight="bold" fill="currentColor" stroke="none">PDF</text></symbol>
+</svg>
+
+
+<nav class="site-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="professional.html">Professional</a></li>
+    <li><a href="papers.html" class="current">Papers</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="carbon.html">Carbon</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <h1>Papers</h1>
+
+  <h2>Work in Progress</h2>
+  <ul class="entry-list">
+    <li>
+      Shen Z, Duran-Martin G, Oates CJ. Predictively-Oriented Kalman Filtering.
+      <a href="https://arxiv.org/abs/2606.03230" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      Oates CJ, Howey R, Karvonen T. Sparse Probabilistic Richardson Extrapolation.
+      <a href="https://arxiv.org/abs/2604.02072" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      Liu Q, Fisher MA, Shen Z, Zhao X, Tant K, Curtis A, Oates CJ. Detecting Model Misspecification in Bayesian Inverse Problems via Variational Gradient Descent.
+      <a href="https://arxiv.org/abs/2512.01667" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      Chazal C, Kanagawa H, Shen Z, Korba A, Oates CJ. A Computable Measure of Suboptimality for Entropy-Regularised Variational Objectives.
+      <a href="https://arxiv.org/abs/2509.10393" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      Xi M, Shen Z, Riabiz M, Chopin N, Oates CJ. Extrapolation of Tempered Posteriors.
+      <a href="https://arxiv.org/abs/2509.12173" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      Shen Z, Wang H, Riabiz M, Oates CJ. Operator-Informed Score Matching for Markov Diffusion Models.
+      <a href="https://arxiv.org/abs/2406.09084" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2026</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Fast Approximate Solutions of Stein Equations for Post-Processing of MCMC</span> — Liu Q, Kanagawa H, Fisher MA, Briol F-X, Oates CJ. (2026) In: Lemieux C, Feng B (eds.). <strong>Monte Carlo and Quasi-Monte Carlo Methods 2024</strong>. Springer Verlag.
+      <a href="https://link.springer.com/book/9783032105899" class="link-badge type-book"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book"/></svg>Book</a>
+      <a href="https://arxiv.org/abs/2501.06634" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Integrating imaging and invasive pressure data into a multi-scale whole-heart model</span> — Strocchi M, Augustin CM, Gsell MA, Rinaldi CA, Vigmond EJ, Plank G, Oates CJ, Wilkinson RD, Niederer SA. (2026) <strong>Journal of Biomechanical Engineering</strong>, 148(5): 051001.
+      <a href="https://asmedigitalcollection.asme.org/biomechanical/article/doi/10.1115/1.4069497/1221672" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Harnessing the Power of Reinforcement Learning for Adaptive MCMC</span> — Wang C, Fisher MA, Kanagawa H, Chen W, Oates CJ. <strong>AISTATS 2026</strong>.
+      <a href="https://arxiv.org/abs/2507.00671" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Stationary MMD Points for Cubature</span> — Chen Z, Karvonen T, Kanagawa H, Briol FX, Oates CJ. <strong>ICML 2026</strong>.
+      <a href="https://arxiv.org/abs/2505.20754" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Thinned Mean Field Langevin Dynamics</span> — Chen Z, Kanagawa H, Briol F-X, Oates CJ, Mackey L. <strong>ICML 2026</strong>.
+      <a href="https://arxiv.org/abs/2605.28589" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li><span class="paper-title">Calibrating Black-Box Probabilistic Numerical Methods</span> — Chen J, Rau M, Oates CJ. <strong>Proceedings of the Second International Conference on Probabilistic Numerics</strong>, 2026.</li>
+    <li>
+      <span class="paper-title">Extrapolating from Regularised Solutions for Solving Ill-Conditioned Linear Systems in Machine Learning</span> — Hegde D, Cockayne J, Oates CJ. (2026) <strong>TMLR</strong>.
+      <a href="https://openreview.net/forum?id=fqbkenUpRa" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2606.30328" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2025</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">GaussED: A Python Package for Sequential Experimental Design</span> — Fisher MA, Teymur O, Oates CJ. <strong>Proceedings of the First International Conference on Probabilistic Numerics</strong>, 2025.
+      <a href="https://arxiv.org/abs/2110.08072" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Online Semiparametric Regression via Sequential Monte Carlo</span> — Menictas M, Oates CJ, Wand MP. <strong>Australian &amp; New Zealand Journal of Statistics</strong>, 67(2):224-249.
+      <a href="https://doi.org/10.1111/anzs.12440" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2310.12391" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Probabilistic Richardson Extrapolation</span> — Oates CJ, Karvonen T, Teckentrup AL, Strocchi M, Niederer SA. <strong>Journal of the Royal Statistical Society, Series B</strong>, 87(2):457-479.
+      <a href="https://doi.org/10.1093/jrsssb/qkae098" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2401.07562" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Prediction-Centric Uncertainty Quantification via MMD</span> — Shen Z, Knoblauch J, Power S, Oates CJ. <strong>Artificial Intelligence and Statistics (AISTATS 2025)</strong>.
+      <a href="https://youtu.be/A_pl_PMWL-g?feature=shared" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>video</a>
+      <a href="https://arxiv.org/abs/2410.11637" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Reinforcement Learning for Adaptive MCMC</span> — Wang C, Chen W, Kanagawa H, Oates CJ. <strong>Artificial Intelligence and Statistics (AISTATS 2025)</strong>.
+      <a href="https://arxiv.org/abs/2405.13574" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2024</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Minimum Kernel Discrepancy Estimators</span> — Oates CJ. In: Hinrichs A, Kritzer P, Pillichshammer F (eds.). <strong>Monte Carlo and Quasi-Monte Carlo Methods 2022</strong>. Springer Verlag.
+      <a href="https://doi.org/10.1007/978-3-031-59762-6" class="link-badge type-book"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book"/></svg>Book</a>
+      <a href="https://arxiv.org/abs/2210.16357" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">The Matérn Model: A Journey through Statistics, Numerical Analysis and Machine Learning</span> — Porcu E, Bevilacqua M, Schaback R, Oates CJ. <strong>Statistical Science</strong>, 39(3):469-492.
+      <a href="http://dx.doi.org/10.1214/24-STS923" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2303.02759" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Grand Challenges in Bayesian Computation</span> — Bhattacharya A, Linero A, Oates CJ (2024) <strong>ISBA Bulletin</strong> 31(3).
+      <a href="https://arxiv.org/abs/2410.00496" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2023</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Gradient-Free Kernel Stein Discrepancy</span> — Fisher M, Oates CJ. <strong>Advances in Neural Information Processing Systems (NeurIPS 2023)</strong>.
+      <a href="https://arxiv.org/abs/2207.02636" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Stein Π-Importance Sampling</span> — Wang C, Chen WY, Kanagawa H, Oates CJ. <strong>Advances in Neural Information Processing Systems (NeurIPS 2023)</strong>. Selected for spotlight presentation.
+      <a href="https://arxiv.org/abs/2305.10068" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Stein's Method Meets Statistics: A Review of Some Recent Developments</span> — Anastasiou A, Barp A, Briol F-X, Ebner B, Gaunt RE, Ghaderinezhad F, Gorham J, Gretton A, Ley C, Liu Q, Mackey L, Oates CJ, Reinert G, Swan Y. <strong>Statistical Science</strong>, 38(1): 120-139.
+      <a href="http://dx.doi.org/10.1214/22-STS863" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2105.03481" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Regularised Zero-Variance Control Variates for High-Dimensional Variance Reduction</span> — South LF, Oates CJ, Mira M, Drovandi C. <strong>Bayesian Analysis</strong>, 18(3): 865-888.
+      <a href="https://doi.org/10.1214/22-BA1328" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1811.05073" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed</span> — Karvonen T, Oates CJ (2023) <strong>Journal of Machine Learning Research</strong>, 24(120):1-47.
+      <a href="https://jmlr.org/papers/v24/22-1153.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2203.09179" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Sobolev Spaces, Kernels and Discrepancies over Hyperspheres</span> — Hubbert S, Porcu E, Oates CJ, Girolami M (2023) <strong>Transactions on Machine Learning Research</strong>.
+      <a href="https://openreview.net/forum?id=82hRiAbnnm" class="link-badge type-book"><svg class="badge-icon" aria-hidden="true"><use href="#icon-message"/></svg>OpenReview</a>
+      <a href="https://arxiv.org/abs/2211.09196" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Meta-learning Control Variates: Variance Reduction with Limited Data</span> — Sun Z, Oates CJ, Briol FX. <strong>Conference on Uncertainty in Artificial Intelligence (UAI 2023)</strong>. Selected for oral presentation.
+      <a href="https://arxiv.org/abs/2303.04756" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Cell to Whole Organ Global Sensitivity Analysis on a Four-chamber Electromechanics Model Using Gaussian Processes Emulators</span> — Strocchi M, Longobardi S, Augustin CM, Gsell MAF, Petras A, Rinaldi CA, Vigmond EJ, Plank G, Oates CJ, Wilkinson RD, Niederer SA. <strong>PLoS Computational Biology</strong>, 19(6): e1011257.
+      <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1011257" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Generalised Bayesian Inference for Discrete Intractable Likelihood</span> — Matsubara T, Knoblauch J, Briol FX, Oates CJ. (2023) <strong>Journal of the American Statistical Society</strong>, 119(547), 2345-2355.
+      <a href="https://doi.org/10.1080/01621459.2023.2257891" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2206.08420" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Statistical Properties of the Probabilistic Numeric Linear Solver BayesCG</span> — Reid TW, Ipsen ICF, Cockayne J, Oates CJ. <strong>Numerische Mathematik, 155, 239-288</strong>.
+      <a href="https://link.springer.com/article/10.1007/s00211-023-01375-7" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2208.03885" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Review of "Probabilistic Numerics" by Hennig, Osborne and Kersting</span> — Oates CJ. <strong>SIAM Review</strong>, 65(3):905-915.
+      <a href="https://doi.org/10.1137/23N975764" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+  </ul>
+
+  <h2>2022</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Robust Generalised Bayesian Inference for Intractable Likelihoods</span> — Matsubara T, Knoblauch J, Briol FX, Oates CJ. <strong>Journal of the Royal Statistical Society (Series B)</strong>, 84(3):997-1022.
+      <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12500" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2104.07359" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://tube.switch.ch/videos/mlsbm20IkU" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
+    </li>
+    <li>
+      <span class="paper-title">Optimal Thinning of MCMC Output</span> — Riabiz M, Chen WY, Cockayne J, Swietach P, Niederer SA, Mackey L, Oates CJ. <strong>Journal of the Royal Statistical Society (Series B)</strong>, 84(4):1059-1081.
+      <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12503" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2005.03952" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="http://stein-thinning.org" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">Semi-Exact Control Functionals From Sard's Method</span> — South LF, Karvonen T, Nemeth C, Girolami M, Oates CJ. <strong>Biometrika</strong>, 109(2):351-367.
+      <a href="https://arxiv.org/abs/2002.00033" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://github.com/LeahPrice/ZVCV" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">Scalable Control Variates for Monte Carlo Methods via Stochastic Optimization</span> — Si S, Oates CJ, Duncan AB, Carin L, Briol F-X. <strong>Proceedings of the 14th International Conference in Monte Carlo &amp; Quasi-Monte Carlo Methods in Scientific Computing, Springer 2022</strong>.
+      <a href="https://link.springer.com/book/10.1007/978-3-030-98319-2" class="link-badge type-book"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book"/></svg>Book</a>
+      <a href="https://arxiv.org/abs/2006.07487" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Post-Processing of MCMC</span> — South LF, Riabiz M, Teymur O, Oates CJ. <strong>Annual Reviews of Statistics and its Application, 9:529-555</strong>.
+      <a href="https://www.annualreviews.org/doi/full/10.1146/annurev-statistics-040220-091727" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2103.16048" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">A Statistical Approach to Surface Metrology for 3D-Printed Stainless Steel</span> — Oates CJ, Kendall WS, Fleming L. <strong>Technometrics</strong>, 64(3):370-383.
+      <a href="https://www.tandfonline.com/doi/full/10.1080/00401706.2021.2009034" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2111.07745" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">A Riemann-Stein Kernel Method</span> — Barp A, Oates CJ, Porcu E, Girolami M. <strong>Bernoulli</strong>, 28(4): 2181-2208.
+      <a href="https://projecteuclid.org/journals/bernoulli/volume-28/issue-4/A-RiemannStein-kernel-method/10.3150/21-BEJ1415.short" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1810.04946" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Testing Whether a Learning Procedure is Calibrated</span> — Cockayne J, Graham MM, Oates CJ, Sullivan TJ. (2022) <strong>Journal of Machine Learning Research</strong>, 23(203):1-36.
+      <a href="https://www.jmlr.org/papers/v23/21-1065.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2012.12670" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li><span class="paper-title">Parameter Space Reduction for Four-chamber Electromechanics Simulations Using Gaussian Processes Emulators</span> — Strocchi M, Longobardi S, Augustin CM, Gsell MAF, Vigmond EJ, Plank G, Oates CJ, Wilkinson RD, Niederer SA. <strong>Proceedings of the 10th Vienna International Conference on Mathematical Modelling</strong>, 2022.</li>
+    <li>
+      <span class="paper-title">BayesCG As An Uncertainty Aware Version of CG</span> — Reid TW, Ipsen ICF, Cockayne J, Oates CJ. <strong>Technical Report</strong>, 2022.
+      <a href="https://arxiv.org/abs/2008.03225" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2021</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">A Data-Centric Approach to Generative Modelling for 3D-Printed Steel</span> — Dodwell TJ, Fleming LR, Buchanan C, Kyvelou P, Detommaso G, Gosling PD, Scheichl R, Kendall WS, Gardner L, Girolami MA, Oates CJ. <strong>Proceedings of the Royal Society A</strong>, 477(2255).
+      <a href="https://royalsocietypublishing.org/doi/10.1098/rspa.2021.0444" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Probabilistic Iterative Methods for Linear Systems</span> — Cockayne J, Ipsen ICF, Oates CJ, Reid TW. <strong>Journal of Machine Learning Research</strong>, 22(232):1-34.
+      <a href="https://jmlr.org/papers/v22/21-0031.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2012.12615" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Bayesian Numerical Methods for Nonlinear Partial Differential Equations</span> — Wang J, Cockayne J, Chkrebtii O, Sullivan TJ, Oates CJ. <strong>Statistics and Computing</strong>, 31(55).
+      <a href="https://doi.org/10.1007/s11222-021-10030-w" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2104.12587" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">The Ridgelet Prior: A Covariance Function Approach to Prior Specification for Bayesian Neural Networks</span> — Matsubara T, Oates CJ, Briol F-X. <strong>Journal of Machine Learning Research</strong>, 22(157):1-57.
+      <a href="https://www.jmlr.org/papers/v22/20-1300.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2010.08488" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Integration in Reproducing Kernel Hilbert Spaces of Gaussian Kernels</span> — Karvonen T, Oates CJ, Girolami M. <strong>Mathematics of Computation</strong>, 90(331):2209-2233.
+      <a href="https://doi.org/10.1090/mcom/3659" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2004.12654" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Optimal Quantisation of Probability Measures Using Maximum Mean Discrepancy</span> — Teymur O, Gorham J, Riabiz M, Oates CJ. <strong>International Conference on Artificial Intelligence and Statistics (AISTATS 2021)</strong>.
+      <a href="http://proceedings.mlr.press/v130/teymur21a.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2010.07064" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Causal Graphical Models for Systems-Level Engineering Assessment</span> — Stephenson V, Oates CJ, Finlayson A, Thomas C, Wilson K. <strong>ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems, Part A: Civil Engineering</strong>, 7(2):04021011.
+      <a href="https://ascelibrary.org/doi/10.1061/AJRUA6.0001116" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Improved Calibration of Numerical Integration Error in Sigma-Point Filters</span> — Prüher J, Karvonen T, Oates CJ, Straka O, Särkkä S. <strong>IEEE Transactions on Automatic Control</strong>, 66(3):1286-1292.
+      <a href="https://ieeexplore.ieee.org/document/9084238" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1811.11474" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Measure Transport with Kernel Stein Discrepancy</span> — Fisher MA, Nolan T, Graham MM, Prangle D, Oates CJ. <strong>AISTATS 2021</strong>. Selected for oral presentation (top 3%).
+      <a href="https://proceedings.mlr.press/v130/fisher21a.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2010.11779" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://github.com/MatthewAlexanderFisher/MTKSD" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">Black Box Probabilistic Numerics</span> — Teymur O, Foley CN, Breen PG, Karvonen T, Oates CJ. <strong>Advances in Neural Information Processing Systems (NeurIPS 2021)</strong>.
+      <a href="https://proceedings.neurips.cc/paper/2021/file/c4de8ced6214345614d33fb0b16a8acd-Paper.pdf" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2106.13718" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2020</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Maximum Likelihood Estimation and Uncertainty Quantification for Gaussian Process Approximation of Deterministic Functions</span> — Karvonen T, Wynne G, Tronarp F, Oates CJ, Särkkä S. <strong>SIAM Journal of Uncertainty Quantification</strong>, 8(3):926-958.
+      <a href="https://epubs.siam.org/doi/10.1137/20M1315968" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/2001.10965" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">A Locally Adaptive Bayesian Cubature Method</span> — Fisher MA, Oates CJ, Powell C, Teckentrup A. <strong>AISTATS 2020</strong>.
+      <a href="http://proceedings.mlr.press/v108/fisher20a.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1910.02995" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Discussion of "Unbiased Markov Chain Monte Carlo with Couplings"</span> — South LF, Nemeth C, Oates CJ. <strong>Journal of the Royal Statistical Society (Series B)</strong>, 82(3):590-592.
+      <a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/rssb.12336" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1912.10496" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Optimality Criteria for Probabilistic Numerical Methods</span> — Oates CJ, Cockayne J, Prangle D, Sullivan TJ, Girolami M. <strong>In Multivariate Algorithms and Information-Based Complexity, De Gruyter</strong>.
+      <a href="https://arxiv.org/abs/1901.04326" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">A Role for Symmetry in the Bayesian Solution of Differential Equations</span> — Wang J, Cockayne J, Oates CJ. <strong>Bayesian Analysis</strong>, 15(4):1057-1085.
+      <a href="https://projecteuclid.org/euclid.ba/1571191351" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1906.10564" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2019</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Editorial: Special Edition on Probabilistic Numerics</span> — Girolami M, Ipsen I, Oates CJ, Owen A, Sullivan T. <strong>Statistics and Computing</strong>, 29(6):1181-1183.
+      <a href="https://link.springer.com/article/10.1007%2Fs11222-019-09892-y" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Causal Learning via Manifold Regularization</span> — Hill SM, Oates CJ, Blythe D, Mukherjee S. <strong>Journal of Machine Learning Research, 20:1-32</strong>.
+      <a href="http://jmlr.org/papers/v20/18-383.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1612.05678" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Stein Point Markov Chain Monte Carlo</span> — Chen WY, Barp A, Briol FX, Gorham J, Girolami M, Mackey L, Oates CJ. <strong>ICML 2019</strong>.
+      <a href="http://proceedings.mlr.press/v97/chen19b/chen19b.pdf" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1905.03673" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://github.com/wilson-ye-chen/sp-mcmc" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">A Modern Retrospective on Probabilistic Numerics</span> — Oates CJ, Sullivan TJ. <strong>Statistics and Computing</strong>, 29(6):1335-1351.
+      <a href="http://link.springer.com/article/10.1007/s11222-019-09902-z" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1901.04457" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Bayesian Probabilistic Numerical Methods</span> — Cockayne J, Oates CJ, Sullivan T, Girolami M. <strong>SIAM Review</strong>, 61(4):756-789.
+      <a href="https://epubs.siam.org/doi/pdf/10.1137/17M1139357" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1702.03673" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Symmetry Exploits for Bayesian Cubature Methods</span> — Karvonen T, Särkkä S, Oates CJ. <strong>Statistics and Computing, 29:1231-1248</strong>.
+      <a href="https://link.springer.com/article/10.1007%2Fs11222-019-09896-8" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1809.10227" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://github.com/tskarvone/bc-symmetry-exploits" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">A Bayesian Conjugate Gradient Method</span> — Cockayne J, Oates CJ, Ipsen I, Girolami M. <strong>(with discussion and rejoinder) Bayesian Analysis</strong>, 14(3):937-1012.
+      <a href="https://projecteuclid.org/euclid.ba/1558144846" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1801.05242" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+      <a href="https://github.com/jcockayne/bcg" class="link-badge type-software"><svg class="badge-icon" aria-hidden="true"><use href="#icon-code"/></svg>Software</a>
+    </li>
+    <li>
+      <span class="paper-title">Bayesian Probabilistic Numerical Methods in Time-Dependent State Estimation for Industrial Hydrocyclone Equipment</span> — Oates CJ, Cockayne J, Aykroyd RG, Girolami M. <strong>Journal of the American Statistical Association</strong>, 114(528):1518-1531.
+      <a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1574583" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1707.06107" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Optimal Monte Carlo Integration on Closed Manifolds</span> — Ehler M, Gräf M, Oates CJ. <strong>Statistics and Computing</strong>, 29(6):1203-1214.
+      <a href="http://link.springer.com/article/10.1007/s11222-019-09894-w" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1707.04723" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Convergence Rates for a Class of Estimators Based on Stein's Method</span> — Oates CJ, Cockayne J, Briol F-X, Girolami M. (2019) <strong>Bernoulli</strong>, 25(2):1141-1159.
+      <a href="https://projecteuclid.org/euclid.bj/1551862846" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1603.03220" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Probabilistic Integration: A Role in Statistical Computation? (with discussion and rejoinder)</span> — Briol F-X, Oates CJ, Girolami M, Osborne MA, Sejdinovic D. <strong>Statistical Science</strong>, 34(1):1-22.
+      <a href="http://dx.doi.org/10.1214/18-STS660" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1512.00933" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Graphical Models in Molecular Systems Biology</span> — Mukherjee S, Oates CJ. <strong>In Handbook of Graphical Models, CRC Press</strong>.
+      <a href="https://stat.ethz.ch/~maathuis/papers/Handbook.pdf" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>Preprint</a>
+    </li>
+  </ul>
+
+  <h2>2018</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">A Bayes-Sard Cubature Method</span> — Karvonen T, Oates CJ, Särkkä S. <strong>NeurIPS 2018</strong>.
+      <a href="https://papers.nips.cc/paper/7829-a-bayes-sard-cubature-method" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1804.03016" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Stein Points</span> — Chen WY, Mackey L, Gorham J, Briol FX, Oates CJ. <strong>ICML 2018, PMLR 80:844-853</strong>.
+      <a href="http://proceedings.mlr.press/v80/chen18f.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1803.10161" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2017</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Probabilistic Models for Integration Error in Assessment of Functional Cardiac Models</span> — Oates CJ, Niederer S, Lee A, Briol F-X, Girolami M. <strong>NIPS 2017</strong>.
+      <a href="http://papers.nips.cc/paper/6616-probabilistic-models-for-integration-error-in-the-assessment-of-functional-cardiac-models" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1606.06841" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">On the Sampling Problem for Kernel Quadrature</span> — Briol FX, Oates CJ, Cockayne J, Chen WY, Girolami M. (2017) <strong>ICML 2017, PMLR 70:586-595</strong>.
+      <a href="http://proceedings.mlr.press/v70/briol17a.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1706.03369" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Discussion of "A Bayesian information criterion for singular models"</span> — Friel N, McKeone JP, Oates CJ, Pettitt AN. (2017) <strong>Journal of the Royal Statistical Society (Series B)</strong>, 79(2):323-380.
+      <a href="http://onlinelibrary.wiley.com/doi/10.1111/rssb.12187/abstract?campaign=woletoc" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1611.02367" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Repair of Partly Misspecified Causal Diagrams</span> — Oates CJ, Kasza J, Simpson JA, Forbes AB. (2017) <strong>Epidemiology</strong>, 28(4):548-552.
+      <a href="http://journals.lww.com/epidem/fulltext/2017/07000/Repair_of_Partly_Misspecified_Causal_Diagrams.12.aspx" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/28346270" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-flask"/></svg>PubMed</a>
+    </li>
+    <li>
+      <span class="paper-title">Control Functionals for Monte Carlo Integration</span> — Oates CJ, Girolami M, Chopin N. (2017) <strong>Journal of the Royal Statistical Society, Series B</strong>, 79(3):695-718.
+      <a href="http://onlinelibrary.wiley.com/doi/10.1111/rssb.12185/abstract" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1410.2392" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Investigation of the Widely Applicable Bayesian Information Criteria</span> — Friel N, McKeone JP, Oates CJ, Pettitt AN. (2017) <strong>Statistics and Computing</strong>, 27(3):833-844.
+      <a href="https://link.springer.com/article/10.1007/s11222-016-9657-y" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1501.05447" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2016</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Probabilistic Numerical Methods for PDE-constrained Bayesian Inverse Problems</span> — Cockayne J, Oates CJ, Sullivan T, Girolami M (2016) <strong>AIP Conference Proceedings</strong>, 1853:060001.
+      <a href="http://aip.scitation.org/doi/abs/10.1063/1.4985359" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="https://arxiv.org/abs/1701.04006" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Discussion of "Causal inference using invariant prediction: identification and confidence intervals"</span> — Oates CJ, Kasza J, Mukherjee S (2016) <strong>Journal of the Royal Statistical Society (Series B)</strong>, 78(5):947-1012.
+      <a href="http://onlinelibrary.wiley.com/doi/10.1111/rssb.12167/full" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1605.08328" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">RNA editing generates sequence diversity within cell populations</span> — Harjanto D, Papamarkou T, Oates CJ, Rayon Estrada V, Papavasiliou FN, Papavasiliou A. (2016) <strong>Nature Communications, 7:12145</strong>.
+      <a href="http://www.nature.com/ncomms/2016/160715/ncomms12145/full/ncomms12145.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Control Functionals for Quasi-Monte Carlo Integration</span> — Oates CJ, Girolami M. (2016) <strong>AISTATS, JMLR W&amp;CP, 51:56-65</strong>. Selected for Oral Presentation (top 6.5% of submissions).
+      <a href="http://jmlr.org/proceedings/papers/v51/oates16.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1501.03379" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Estimation of Causal Structure Using Conditional DAG Models</span> — Oates CJ, Smith JQ, Mukherjee S. (2016) <strong>Journal of Machine Learning Research</strong>, 17(54):1-23.
+      <a href="http://jmlr.org/papers/v17/14-479.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1411.2755" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">The Controlled Thermodynamic Integral for Bayesian Model Evidence Evaluation</span> — Oates CJ, Papamarkou T, Girolami M (2016) <strong>Journal of the American Statistical Association</strong>, 111(514):634-645.
+      <a href="http://amstat.tandfonline.com/doi/abs/10.1080/01621459.2015.1021006" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1404.5053" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Exploiting Multi-Core Architectures for Reduced-Variance Estimation with Intractable Likelihoods</span> — Friel N, Mira A, Oates CJ (2015) <strong>Bayesian Analysis</strong>, 11(1):215-245.
+      <a href="http://projecteuclid.org/euclid.ba/1428516724" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1408.4663" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Exact Estimation of Multiple Directed Acyclic Graphs</span> — Oates CJ, Smith JQ, Mukherjee S, Cussens J (2016) <strong>Statistics and Computing</strong>, 26(4):797-811.
+      <a href="http://link.springer.com/article/10.1007%2Fs11222-015-9570-9" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1404.1238" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2015</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Frank-Wolfe Bayesian Quadrature: Probabilistic Integration with Theoretical Guarantees</span> — Briol F-X, Oates CJ, Girolami M, Osborne MA. (2015) <strong>NIPS 2015</strong>. Selected for Spotlight Presentation.
+      <a href="https://papers.nips.cc/paper/5749-frank-wolfe-bayesian-quadrature-probabilistic-integration-with-theoretical-guarantees" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1506.02681" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Decoupling of the PI3K pathway via mutation necessitates combinatorial treatment in HER2+ breast cancer</span> — Korkola JE, Collisson EA, Heiser L, Oates CJ, et al. (2015) <strong>PLoS One</strong>, 10(7):e0133219.
+      <a href="http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0133219" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">Accelerated Nonparametrics for Cascades of Poisson Processes</span> — Oates CJ. (2015) <strong>Stat</strong>, 4(1):183-195.
+      <a href="http://onlinelibrary.wiley.com/doi/10.1002/sta4.87/abstract" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1507.03047" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Discussion of "Sequential Quasi-Monte Carlo" by Gerber and Chopin</span> — Oates CJ, Simpson D, Girolami M (2015) <strong>Journal of the Royal Statistical Society (Series B)</strong>, 77(3):555-556.
+      <a href="http://onlinelibrary.wiley.com/doi/10.1111/rssb.12104/abstract?campaign=woletoc" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1501.03386" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Towards a Multi-Subject Analysis of Neural Connectivity</span> — Oates CJ, Costa L, Nichols T (2015) <strong>Neural Computation</strong>, 27:151-170.
+      <a href="http://www.mitpressjournals.org/doi/pdf/10.1162/NECO_a_00690" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1404.1239" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <h2>2014</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Quantifying the Multi-Scale Performance of Network Inference Algorithms</span> — Oates CJ, Amos R, Spencer SEF (2014) <strong>Statistical Applications in Genetics and Molecular Biology</strong> 13(5):611-631.
+      <a href="http://dx.doi.org/10.1515/sagmb-2014-0012" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1402.7322" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Joint Estimation of Multiple Related Biological Networks</span> — Oates CJ, Korkola J, Gray JW, Mukherjee S (2014) <strong>The Annals of Applied Statistics</strong> 8(3):1892-1919.
+      <a href="https://projecteuclid.org/euclid.aoas/1414091238" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1302.1969" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Causal network inference using biochemical kinetics</span> — Oates CJ, Dondelinger F, Bayani N, Korkola J, Gray JW, Mukherjee S (2014) Bioinformatics 30(17):i468-i474. <strong>Best Paper at the European Conference on Computational Biology 2014</strong>.
+      <a href="https://doi.org/10.1093/bioinformatics/btu452" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1406.0063" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Joint Structure Learning of Multiple Non-Exchangeable Networks</span> — Oates CJ, Mukherjee S (2014) <strong>AISTATS, JMLR W&amp;CP</strong> 33:687-695.
+      <a href="http://jmlr.org/proceedings/papers/v33/oates14.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1402.5640" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Single-Cell States in the Estrogen Response of Breast Cancer Cell Lines</span> — Casale FP, et al. (2014) <strong>PLoS One</strong> 9(2):e88485.
+      <a href="http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0088485" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+    <li>
+      <span class="paper-title">A stochastic model dissects cellular states and heterogeneity in transition processes</span> — Armond J, Saha K, Rana AA, Oates CJ, Jaenisch R, Nicodemi M, Mukherjee S (2014) <strong>Nature Scientific Reports</strong> 4:3692.
+      <a href="http://www.nature.com/srep/2014/140117/srep03692/full/srep03692.html" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+    </li>
+  </ul>
+
+  <h2>2013</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Bayesian Inference for Protein Signalling Networks</span> — Oates CJ (2013) <strong>PhD Thesis</strong>.
+      <a href="http://oates.work/s/warwickthesis_electronic.pdf" class="link-badge type-pdf"><svg class="badge-icon" aria-hidden="true"><use href="#icon-pdf"/></svg>pdf</a>
+    </li>
+    <li><span class="paper-title">Self Organisation and Emergence</span> — Chau Y-X, Oates CJ, Rana AA, Robinson L, Nicodemi M. (2013) <strong>In: Complexity Science: The Warwick Master's Course, Cambridge University Press</strong>.</li>
+  </ul>
+
+  <h2>2012</h2>
+  <ul class="entry-list">
+    <li>
+      <span class="paper-title">Network Inference and Biological Dynamics</span> — Oates CJ, Mukherjee S (2012) <strong>The Annals of Applied Statistics</strong> 6(3):1209-1235.
+      <a href="http://projecteuclid.org/DPubS?handle=euclid.aoas%2F1346418580&service=UI&verb=Display&version=1.0" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1112.1047" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+    <li>
+      <span class="paper-title">Network Inference Using Steady State Data and Goldbeter-Koshland Kinetics</span> — Oates CJ, Hennessy BT, Lu Y, Mills GB, Mukherjee S (2012) <strong>Bioinformatics</strong> 28(18):2342-2348.
+      <a href="http://dx.doi.org/10.1093/bioinformatics/bts459" class="link-badge type-journal"><svg class="badge-icon" aria-hidden="true"><use href="#icon-book-2"/></svg>Journal</a>
+      <a href="http://arxiv.org/abs/1306.1904" class="link-badge type-arxiv"><svg class="badge-icon" aria-hidden="true"><use href="#icon-file-text"/></svg>arXiv</a>
+    </li>
+  </ul>
+
+  <footer class="site-footer">
+    <p>&copy; Chris Oates.</p>
+  </footer>
+</div>
+</body>
+</html>
