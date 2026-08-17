@@ -3,34 +3,6 @@
 build_cv.py — assemble cv.html (and, via render_pdf.py, cv.pdf) from the
 existing, hand-edited site pages.
 
-This is the "option 3" approach: nobody edits this file's output by hand,
-and nobody edits a data file either. You keep editing professional.html,
-papers.html, teaching.html, presentations.html, index.html exactly as
-before. This script just reads those same files and re-assembles the
-CV-relevant sections, in the order used by the old CV.tex, into one
-document with its own print-focused stylesheet (cv-print.css).
-
-Run it from the repository root:
-
-    python3 build_cv.py
-
-It writes cv.html next to the other site pages. The GitHub Actions
-workflow (.github/workflows/build-cv.yml) runs this automatically on
-every push that touches the site content, then renders cv.html to
-cv.pdf (via render_pdf.py) and commits both back to the repo.
-
-WHAT TO EDIT IF A SECTION IS WRONG OR MISSING
------------------------------------------------
-- Wrong content in a section -> edit the source .html page as usual
-  (professional.html, papers.html, teaching.html, presentations.html,
-  index.html). Nothing here needs to change.
-- Want to add/remove/reorder a whole section on the CV -> edit the
-  SECTIONS list below.
-- Want to change the name, tagline, address, or contact details at the
-  top of the CV -> edit the HEADER dict below (this is the one piece of
-  content that isn't pulled automatically from a page, since it doesn't
-  live in a tidy list anywhere on the site).
-
 REQUIREMENTS
 ------------
 pip install -r requirements.txt   (just beautifulsoup4 + playwright)
@@ -53,7 +25,7 @@ HEADER = {
     "tagline": "Researcher in statistics, computation, machine learning, and probabilistic AI.",
     "location": (
         "School of Mathematics, Statistics &amp; Physics, Herschel Building, "
-        "Newcastle University, Newcastle upon Tyne, NE1 7RU, UK."
+        "Newcastle University, NE1 7RU, UK."
     ),
     "web": "https://oates.work",
     "contact": "chris.oates@ncl.ac.uk",
