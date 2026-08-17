@@ -58,12 +58,13 @@ nav.site-nav {
 nav.site-nav ul {
   list-style: none;
   /* Centred the same way as the .page container below (760px), but
-     deliberately a bit NARROWER (620px) so the 8 menu items wrap
+     deliberately a bit NARROWER (670px) so the 9 menu items wrap
      onto two more evenly balanced lines instead of leaving just one
      item stranded on the second line. If you add/remove a menu item
      later and the wrap looks lopsided again, nudge this number up or
-     down by ~40-60px until it balances. */
-  max-width: 620px;
+     down by ~40-60px until it balances. (Was 620px for 8 items;
+     bumped to 670px when the "CV" link was added.) */
+  max-width: 670px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
