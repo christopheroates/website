@@ -1,35 +1,4 @@
 <!DOCTYPE html>
-<!--
-  =============================================================
-  professional.html — CV-style page: affiliations, achievements,
-  editorial roles, funding, committees, etc.
-
-  This page is one long list of sections. Each section is just
-  a <h2>Heading</h2> followed by a <ul class="entry-list"> of
-  <li> bullet points. To add a new line to any section, copy an
-  existing <li>...</li> and edit it. To add a whole new section,
-  copy an <h2>...</h2> block plus its <ul>...</ul> and edit both.
-  See index.html for a more heavily-commented explanation of the
-  overall site structure — the same rules apply here.
-
-  ENTRIES WITH LINK BUTTONS
-  ---------------------------
-  A bullet with one or more small pill-shaped link buttons is
-  laid out over a few lines for readability:
-
-    <li>
-      Plain-text description of the item.
-      <a href="URL" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-
-  Add one <a class="link-badge type-X">...</a> line per button.
-  See papers.html's top comment for the full list of badge types
-  (type-web, type-journal, type-video, type-pdf, etc.) and their
-  matching icon-* names — the icon shapes themselves are defined
-  once, near the top of <body>, in the "Shared icon sprite" block.
-  Bullets with no button (just plain text) stay on one line.
-  =============================================================
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -39,35 +8,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- ============================================================
-     Shared icon sprite -- every badge icon is defined ONCE here
-     as a <symbol>, then referenced below via a short
-     <svg class="badge-icon"><use href="#icon-name"/></svg> instead
-     of repeating the whole icon shape every time. This block is
-     never shown directly (display:none). Adding a new badge type?
-     Add a new <symbol id="icon-yourname"> shape here, in the same
-     24x24 outline style, then reference it the same way.
-     ============================================================ -->
-<svg style="display:none" aria-hidden="true">
-  <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="8" y1="9" x2="10" y2="9"/></symbol>
-  <symbol id="icon-world" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></symbol>
-  <symbol id="icon-book-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H3z"/><path d="M21 5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/></symbol>
-  <symbol id="icon-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
-  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="icon-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></symbol>
-  <symbol id="icon-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/><polyline points="7 12 10 9 13 11 17 7"/></symbol>
-  <symbol id="icon-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="1"/><line x1="7" y1="9" x2="13" y2="9"/><line x1="7" y1="12" x2="13" y2="12"/><line x1="7" y1="15" x2="11" y2="15"/><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8"/></symbol>
-  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><line x1="8" y1="3" x2="8" y2="21"/></symbol>
-  <symbol id="icon-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5" fill="currentColor" stroke="none"/><polyline points="4 17 9 12 14 17 16 15 20 19"/></symbol>
-  <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
-  <symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6L4.5 18a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><line x1="7" y1="15" x2="17" y2="15"/></symbol>
-  <symbol id="icon-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><text x="6.3" y="17.5" font-size="6.5" font-family="Arial, sans-serif" font-weight="bold" fill="currentColor" stroke="none">PDF</text></symbol>
-</svg>
-
 
 <nav class="site-nav">
   <ul>
     <li><a href="index.html">Home</a></li>
+    <li><a href="cv.pdf">CV</a></li>
     <li><a href="professional.html" class="current">Professional</a></li>
     <li><a href="papers.html">Papers</a></li>
     <li><a href="books.html">Books</a></li>
@@ -99,52 +44,18 @@
 
   <h2>Achievements</h2>
   <ul class="entry-list">
-    <li>
-      <span class="meta">2024</span> ISBA Savage Award for Theory and Methods (supervised - Takuo Matsubara).
-      <a href="https://bayesian.org/project/savage-award/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2024</span> Royal Statistical Society Guy Medal in Bronze.
-      <a href="https://rss.org.uk/news-publication/news-publications/2024/general-news/announcing-our-honours-recipients-for-2024/" class="link-badge type-article"><svg class="badge-icon" aria-hidden="true"><use href="#icon-news"/></svg>Article</a>
-    </li>
+    <li><span class="meta">2024</span> ISBA Savage Award for Theory and Methods (supervised - Takuo Matsubara). <a href="https://bayesian.org/project/savage-award/">[Web]</a></li>
+    <li><span class="meta">2024</span> Royal Statistical Society Guy Medal in Bronze. <a href="https://rss.org.uk/news-publication/news-publications/2024/general-news/announcing-our-honours-recipients-for-2024/">[Article]</a></li>
     <li><span class="meta">2024</span> Fellowship of the Higher Education Academy, Level D2.</li>
-    <li>
-      <span class="meta">2023</span> Leverhulme Prize (for Mathematics and Statistics).
-      <a href="https://www.ncl.ac.uk/press/articles/latest/2023/10/chrisoateslevehulmeprize/" class="link-badge type-article"><svg class="badge-icon" aria-hidden="true"><use href="#icon-news"/></svg>Article</a>
-      <a href="https://www.leverhulme.ac.uk/news/philip-leverhulme-prize-winners-2023" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2022</span> Best Student Paper (supervised - Takuo Matsubara), ASA Section on Bayesian Statistical Science, JSM 2022.
-      <a href="https://amstat.connectedcommunity.org/sbss/awards" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2023</span> Leverhulme Prize (for Mathematics and Statistics). <a href="https://www.ncl.ac.uk/press/articles/latest/2023/10/chrisoateslevehulmeprize/">[Article]</a> <a href="https://www.leverhulme.ac.uk/news/philip-leverhulme-prize-winners-2023">[Web]</a></li>
+    <li><span class="meta">2022</span> Best Student Paper (supervised - Takuo Matsubara), ASA Section on Bayesian Statistical Science, JSM 2022. <a href="https://amstat.connectedcommunity.org/sbss/awards">[Web]</a></li>
     <li><span class="meta">2021</span> Best Student/Postdoc Contributed Paper Award (supervised - Takuo Matsubara) at ISBA 2021.</li>
-    <li>
-      <span class="meta">2020</span> Most Highly Cited Paper in SIAM Review (Top 3; 2018-2020).
-      <a href="https://sinews.siam.org/Details-Page/siam-journals-top-three-most-cited-papers-2" class="link-badge type-article"><svg class="badge-icon" aria-hidden="true"><use href="#icon-news"/></svg>Article</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Best Student Paper (supervised - Jon Cockayne), ASA Section on Bayesian Statistical Science, JSM 2018.
-      <a href="http://community.amstat.org/sbss/awards/sbssstudentpapercompetitionwinners" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>JSM</a>
-      <a href="https://higherlogicdownload.s3.amazonaws.com/AMSTAT/99a3f1a8-4c9a-4203-a6a4-1928320c6af7/UploadedImages/JSM2018/IMG_4399.jpg" class="link-badge type-article"><svg class="badge-icon" aria-hidden="true"><use href="#icon-photo"/></svg>Photo</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Outstanding Reviewer Award, NIPS 2017.
-      <a href="https://nips.cc/Conferences/2017/Awards" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Biennial Research Prize of the Royal Statistical Society.
-      <a href="https://rss.org.uk/RSS/media/File-library/Events/Awards/previous_recipients_of_-Society_awards.pdf" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>RSS</a>
-      <a href="http://acems.org.au/chris-oates-rss-award/" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>ACEMS</a>
-      <a href="https://www.youtube.com/watch?v=72-u3rpZOec&feature=youtu.be&t=18m29s" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
-    </li>
-    <li>
-      <span class="meta">2016</span> Best Student Paper (supervised - François-Xavier Briol), ASA Section on Bayesian Statistical Science, JSM 2016.
-      <a href="http://community.amstat.org/sbss/awards/sbssstudentpapercompetitionwinners" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>JSM</a>
-    </li>
-    <li>
-      <span class="meta">2014</span> Best Paper, European Conference on Computational Biology (ECCB) 2014.
-      <a href="http://www.ebi.ac.uk/eccb/2014/eccb14.loria.fr/program/eccb-14-awards.html" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>ECCB</a>
-    </li>
+    <li><span class="meta">2020</span> Most Highly Cited Paper in SIAM Review (Top 3; 2018-2020). <a href="https://sinews.siam.org/Details-Page/siam-journals-top-three-most-cited-papers-2">[Article]</a></li>
+    <li><span class="meta">2018</span> Best Student Paper (supervised - Jon Cockayne), ASA Section on Bayesian Statistical Science, JSM 2018. <a href="http://community.amstat.org/sbss/awards/sbssstudentpapercompetitionwinners">[JSM]</a></li>
+    <li><span class="meta">2017</span> Outstanding Reviewer Award, NIPS 2017. <a href="https://nips.cc/Conferences/2017/Awards">[Web]</a> (3.6%)</li>
+    <li><span class="meta">2017</span> Biennial Research Prize of the Royal Statistical Society. <a href="https://rss.org.uk/RSS/media/File-library/Events/Awards/previous_recipients_of_-Society_awards.pdf">[RSS]</a> <a href="http://acems.org.au/chris-oates-rss-award/">[ACEMS]</a></li>
+    <li><span class="meta">2016</span> Best Student Paper (supervised - François-Xavier Briol), ASA Section on Bayesian Statistical Science, JSM 2016. <a href="http://community.amstat.org/sbss/awards/sbssstudentpapercompetitionwinners">[JSM]</a></li>
+    <li><span class="meta">2014</span> Best Paper, European Conference on Computational Biology (ECCB) 2014. <a href="http://www.ebi.ac.uk/eccb/2014/eccb14.loria.fr/program/eccb-14-awards.html">[ECCB]</a> (750 EU)</li>
     <li><span class="meta">2012</span> Best Presentation, Amsterdam Oncology Graduate School Annual Retreat. (250 EU)</li>
     <li><span class="meta">2009</span> Fröhlich Prize for Mathematics, Robinson College Cambridge.</li>
   </ul>
@@ -171,10 +82,7 @@
     <li><span class="meta">2022 – 2028</span> Co-Investigator on "NUData", an STFC Centre for Doctoral Training in Data Intensive Science (1,086,584 GBP). STFC (ST/W006790/1). (Led by James McLaughlin @ Northumbria and Tamara Rogers @ NU.)</li>
     <li><span class="meta">2022 – 2026</span> Principal Investigator on "Harnessing the Power of Stein Discrepancies in Bayesian Computation" (704,773 GBP). EPSRC (EP/W019590/1).</li>
     <li><span class="meta">2021 – 2024</span> Co-Investigator on "Measuring and Modelling Atrial Mechanics in Health and Heart Failure" (315,477 GBP). British Heart Foundation (PG/21/10534). (Led by Steven Niederer @ Imperial).</li>
-    <li>
-      <span class="meta">2020</span> Principal Investigator on "Probabilistic Approaches to Numerical Computation" (6,300 GBP). Heilbronn Institute Focused Research Grant.
-      <a href="https://probnum2022.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2020</span> Principal Investigator on "Probabilistic Approaches to Numerical Computation" (6,300 GBP). Heilbronn Institute Focused Research Grant. <a href="https://probnum2022.github.io">[Web]</a></li>
     <li><span class="meta">2020</span> Co-Investigator on "Modelling the Heart's Chemical Signals" (27,000 USD). Alan Turing Institute Azure Funding. (Led by Steven Niederer @ KCL).</li>
     <li><span class="meta">2020 – 2025</span> Co-Investigator on "Selecting Rhythm or Rate Control in Patients with both Atrial Fibrillation and Heart Failure" (691,686 GBP). British Heart Foundation Programme Grant (RG/20/4/34803). (Led by Steven Niederer @ KCL).</li>
     <li><span class="meta">2020 – 2022</span> Co-Investigator on "Advances in Sequential Monte Carlo Methods for Complex Bayesian Models" (390,000 AUD). Australian Research Council Discovery Project (DP200102101). (Led by Chris Drovandi @ QUT.)</li>
@@ -192,30 +100,16 @@
 
   <h2>Committees and Working Groups</h2>
   <ul class="entry-list">
-    <li><span class="meta">2026 – 2027</span> Member of the Honours Search Committee, Royal Statistical Society.</li>
     <li><span class="meta">2025 – 2029</span> REF Unit of Assessment Lead (Mathematics) for Newcastle University.</li>
     <li><span class="meta">2025 – 2028</span> Member of the Programme Committee for the <a href="https://www.icms.org.uk">International Centre for Mathematical Sciences</a>.</li>
-    <li>
-      <span class="meta">2024 – 2025</span> Chair of the Computation Section of the International Society for Bayesian Analysis.
-      <a href="https://bayesian.org/sectionschapters/computation/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2024 – 2025</span> Chair of the Computation Section of the International Society for Bayesian Analysis. <a href="https://bayesian.org/sectionschapters/computation/">[Web]</a></li>
     <li><span class="meta">2022 – present</span> Vice Chair of the Computational Statistics and Machine Learning Section of the Royal Statistical Society.</li>
-    <li>
-      <span class="meta">2022 – 2023</span> Chair Elect of the Computation Section of the International Society for Bayesian Analysis.
-      <a href="https://bayesian.org/sectionschapters/computation/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2022 – 2023</span> Chair Elect of the Computation Section of the International Society for Bayesian Analysis. <a href="https://bayesian.org/sectionschapters/computation/">[Web]</a></li>
     <li><span class="meta">2021</span> Member of the Scientific Committee for the Australian Mathematical Sciences Institute Winter School, 2021.</li>
     <li><span class="meta">2021</span> Member of the Scientific Committee for Monte Carlo Methods (MCM), August 2021 @ Universität Mannheim, Germany.</li>
-    <li>
-      <span class="meta">2020 – 2024</span> Member of the Advisory Board for CHIMERA: Collaborative Healthcare Innovation through Mathematics, EngineeRing and AI.
-      <a href="https://www.ucl.ac.uk/chimera/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-      <a href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP%2FT017791%2F1" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web2</a>
-    </li>
+    <li><span class="meta">2020 – 2024</span> Member of the Advisory Board for CHIMERA: Collaborative Healthcare Innovation through Mathematics, EngineeRing and AI. <a href="https://www.ucl.ac.uk/chimera/">[Web]</a></li>
     <li><span class="meta">2020 – 2022</span> Member of the Statistical Computing Section Committee of the Royal Statistical Society.</li>
-    <li>
-      <span class="meta">2020</span> Participant in the Physics-Informed Machine Learning Theory and Challenge Fortnight at the Alan Turing Institute.
-      <a href="https://www.turing.ac.uk/collaborate-turing/theory-and-method-challenge-fortnights" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2020</span> Participant in the Physics-Informed Machine Learning Theory and Challenge Fortnight at the Alan Turing Institute. <a href="https://www.turing.ac.uk/collaborate-turing/theory-and-method-challenge-fortnights">[Web]</a></li>
     <li><span class="meta">2017 – 2018</span> Group Leader for the <a href="https://www.samsi.info/qmc-working-group-ii-probabilistic-numerics/">SAMSI working group on Probabilistic Numerics</a> (co-led with <a href="http://www.tjsullivan.org.uk/">Tim Sullivan</a>)</li>
   </ul>
 
@@ -277,171 +171,55 @@
   <h2>Organised Conferences &amp; Workshops</h2>
   <ul class="entry-list">
     <li><span class="meta">2026</span> Post-Bayesian Statistics, August 2026, University of Sydney, Australia.</li>
-    <li>
-      <span class="meta">2026</span> Markov Chain and Quasi Monte Carlo Methods, June 2026, University of Edinburgh, UK.
-      <a href="https://maths.ed.ac.uk/events/mcqmc-2026" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2026</span> Uncertainty Quantification in the North East, February 2026, Newcastle University, UK.
-      <a href="https://sites.google.com/view/uncertainty-quantification-ne/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2025</span> Kernels, Flows and Sampling, October 2025, Newcastle University, UK.
-      <a href="https://sites.google.com/view/kernels-flows-and-sampling/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2024</span> Next-Generational Extrapolation Methods, November 2024, Newcastle University, UK.
-      <a href="https://sites.google.com/view/nuextrapolation/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2024</span> Prob Num 2024. July 2024 @ St Pancras Meeting Rooms, UK.
-      <a href="https://probnum24.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2024</span> Probabilistic Numerics Spring School, April 2024, University of Southampton, UK.
-      <a href="https://probnumschool.org/pages/home.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2023</span> Next Generational Kernel Methods, October 2023, Newcastle University, UK.
-      <a href="https://sites.google.com/view/ngkm-2023/home" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2023</span> Making Better use of MCMC Samples, September 2023, RSS Annual Conference @ Harrogate, UK.
-      <a href="https://rss.org.uk/training-events/conference-2023/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2023</span> Modelling, Analysis and Inference for Digital Twins, March 2023 @ Alan Turing Institute, UK.
-      <a href="https://www.newton.ac.uk/event/dde/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2023</span> Stein Discrepancies, March 2023 @ Bayes Comp, Levi, Finland.
-      <a href="https://bayescomp2023.com" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2022</span> Prob Num 2022. March 2022 @ St Pancras Meeting Rooms, UK.
-      <a href="https://probnum2022.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2021</span> Stein's Method in Computational Statistics, December 2021, Royal Statistical Society, UK.
-      <a href="https://rss.org.uk/training-events/events/events-2021/sections/rss-applied-probability-and-computational-stat-(1)/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2026</span> Markov Chain and Quasi Monte Carlo Methods, June 2026, University of Edinburgh, UK. <a href="https://maths.ed.ac.uk/events/mcqmc-2026">[Web]</a></li>
+    <li><span class="meta">2026</span> Uncertainty Quantification in the North East, February 2026, Newcastle University, UK. <a href="https://sites.google.com/view/uncertainty-quantification-ne/home">[Web]</a></li>
+    <li><span class="meta">2025</span> Kernels, Flows and Sampling, October 2025, Newcastle University, UK. <a href="https://sites.google.com/view/kernels-flows-and-sampling/home">[Web]</a></li>
+    <li><span class="meta">2024</span> Next-Generational Extrapolation Methods, November 2024, Newcastle University, UK. <a href="https://sites.google.com/view/nuextrapolation/home">[Web]</a></li>
+    <li><span class="meta">2024</span> Prob Num 2024. July 2024 @ St Pancras Meeting Rooms, UK. <a href="https://probnum24.github.io">[Web]</a></li>
+    <li><span class="meta">2024</span> Probabilistic Numerics Spring School, April 2024, University of Southampton, UK. <a href="https://probnumschool.org/pages/home.html">[Web]</a></li>
+    <li><span class="meta">2023</span> Next Generational Kernel Methods, October 2023, Newcastle University, UK. <a href="https://sites.google.com/view/ngkm-2023/home">[Web]</a></li>
+    <li><span class="meta">2023</span> Making Better use of MCMC Samples, September 2023, RSS Annual Conference @ Harrogate, UK. <a href="https://rss.org.uk/training-events/conference-2023/">[Web]</a></li>
+    <li><span class="meta">2023</span> Modelling, Analysis and Inference for Digital Twins, March 2023 @ Alan Turing Institute, UK. <a href="https://www.newton.ac.uk/event/dde/">[Web]</a></li>
+    <li><span class="meta">2023</span> Stein Discrepancies, March 2023 @ Bayes Comp, Levi, Finland. <a href="https://bayescomp2023.com">[Web]</a></li>
+    <li><span class="meta">2022</span> Prob Num 2022. March 2022 @ St Pancras Meeting Rooms, UK. <a href="https://probnum2022.github.io">[Web]</a></li>
+    <li><span class="meta">2021</span> Stein's Method in Computational Statistics, December 2021, Royal Statistical Society, UK. <a href="https://rss.org.uk/training-events/events/events-2021/sections/rss-applied-probability-and-computational-stat-(1)/">[Web]</a></li>
     <li><span class="meta">2021</span> European Young Statistician's Meeting: Online (EYSM), September 2021. (International organising committee)</li>
-    <li>
-      <span class="meta">2021</span> Stein's Method: Post-processing of Monte Carlo. Monte Carlo Methods (MCM), August 2021 @ Universität Mannheim, Germany.
-      <a href="https://www.uni-mannheim.de/mcm-2021/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2020</span> Bayesian Young Statisticians Meeting: Online (BAYSM:O), November 2020. (Senior discussant)
-      <a href="https://j-isba.github.io/baysmo.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2021</span> Stein's Method: Post-processing of Monte Carlo. Monte Carlo Methods (MCM), August 2021 @ Universität Mannheim, Germany. <a href="https://www.uni-mannheim.de/mcm-2021/">[Web]</a></li>
+    <li><span class="meta">2020</span> Bayesian Young Statisticians Meeting: Online (BAYSM:O), November 2020. (Senior discussant) <a href="https://j-isba.github.io/baysmo.html">[Web]</a></li>
     <li><span class="meta">2020</span> Cosines &amp; Bayes4Health Data Study Group, September 2020, University of Warwick, UK.</li>
-    <li>
-      <span class="meta">2020</span> Quantifying Uncertainty due to Discretisation Error in Numerical Computation, September 2020, RSS Annual Conference @ Bournemouth, UK.
-      <a href="https://events.rss.org.uk/rss/frontend/reg/titem.csp?eventID=406&pageID=135865" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2020</span> Probabilistic Numerical Methods for Cubature, March 2020 @ SIAM UQ, Garching, Germany.
-      <a href="https://siam-uq20.ma.tum.de/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2020</span> Quantifying Uncertainty due to Discretisation Error in Numerical Computation, September 2020, RSS Annual Conference @ Bournemouth, UK.</li>
+    <li><span class="meta">2020</span> Probabilistic Numerical Methods for Cubature, March 2020 @ SIAM UQ, Garching, Germany. <a href="https://siam-uq20.ma.tum.de/">[Web]</a></li>
     <li><span class="meta">2019</span> Prob Num 2019. October 2019 @ Alan Turing Institute, UK.</li>
-    <li>
-      <span class="meta">2019</span> Stein's Method for Machine Learning and Statistics, June 2019 @ ICML, California, USA.
-      <a href="https://steinworkshop.github.io/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-      <a href="https://slideslive.com/icml/icml-2019-room-104-a-live" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>Videos</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Evolution of Data-Centric Engineering, September 2018, RSS Annual Conference @ Cardiff, UK.
-      <a href="https://events.rss.org.uk/rss/frontend/reg/titem.csp?pageID=68829&eventID=194" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Max Ent, July 2018 @ Alan Turing Institute, UK.
-      <a href="https://max-ent.github.io" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Minisymposium on Probabilistic Numerical Methods for Quantification of Discretisation Error. April 2018 @ SIAM UQ, Orange County, CA, USA.
-      <a href="https://www.siam.org/meetings/uq18/program.php" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Meeting of the SAMSI Probabilistic Numerics Working Group. April 2018 @ Alan Turing Institute, UK.
-      <a href="https://prob-num.github.io/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2018</span> Data Sciences for Climate and Environment, March 2018 @ Alan Turing Institute, UK.
-      <a href="https://www.turing.ac.uk/events/data-sciences-climate-environment/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Grand Challenges in Data-Centric Engineering. September 2017, RSS Annual Conference @ University of Strathclyde, UK.
-      <a href="https://oates.work/rss2017" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2016</span> Probabilistic Numerics. August 2016, MCQMC @ Stanford, California, USA.
-      <a href="http://mcqmc2016.stanford.edu/program.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2016</span> Algorithms for Intractable Problems. January 2016, MCMSki @ Lenzerheide, Switzerland.
-      <a href="http://www.pages.drexel.edu/~mwl25/mcmskiV/program_invited.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2016</span> Probabilistic Integration: Integrating Inference With Integration. January 2016, MCMSki @ Lenzerheide, Switzerland.
-      <a href="http://probabilistic-numerics.org/meetings/MCMSki2016.html" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2015</span> Julia for Statisticians. November 2015 @ University of Technology Sydney.
-      <a href="http://www.statsoc.org.au/events/ssai-events/julia-for-statisticians-2/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2015</span> Probabilistic Numerics for Differential Equations. April 2015 @ University of Warwick, UK.
-      <a href="http://www2.warwick.ac.uk/fac/sci/statistics/crism/workshops/probnumerics" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2014</span> Statistical Systems Biology. December 2014 @ University of Warwick, UK.
-      <a href="http://www2.warwick.ac.uk/fac/sci/statistics/crism/workshops/statisticssystems/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2012</span> Inference and Control for Complex Dynamical Systems. November 2012 @ University of Warwick, UK.
-      <a href="http://www2.warwick.ac.uk/fac/sci/maths/research/events/2012-2013/nonsymp/miraw26_11/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
+    <li><span class="meta">2019</span> Stein's Method for Machine Learning and Statistics, June 2019 @ ICML, California, USA. <a href="https://steinworkshop.github.io/">[Web]</a></li>
+    <li><span class="meta">2018</span> Evolution of Data-Centric Engineering, September 2018, RSS Annual Conference @ Cardiff, UK.</li>
+    <li><span class="meta">2018</span> Max Ent, July 2018 @ Alan Turing Institute, UK. <a href="https://max-ent.github.io">[Web]</a></li>
+    <li><span class="meta">2018</span> Minisymposium on Probabilistic Numerical Methods for Quantification of Discretisation Error. April 2018 @ SIAM UQ, Orange County, CA, USA.</li>
+    <li><span class="meta">2018</span> Meeting of the SAMSI Probabilistic Numerics Working Group. April 2018 @ Alan Turing Institute, UK. <a href="https://prob-num.github.io/">[Web]</a></li>
+    <li><span class="meta">2018</span> Data Sciences for Climate and Environment, March 2018 @ Alan Turing Institute, UK.</li>
+    <li><span class="meta">2017</span> Grand Challenges in Data-Centric Engineering. September 2017, RSS Annual Conference @ University of Strathclyde, UK.</li>
+    <li><span class="meta">2016</span> Probabilistic Numerics. August 2016, MCQMC @ Stanford, California, USA.</li>
+    <li><span class="meta">2016</span> Algorithms for Intractable Problems. January 2016, MCMSki @ Lenzerheide, Switzerland.</li>
+    <li><span class="meta">2016</span> Probabilistic Integration: Integrating Inference With Integration. January 2016, MCMSki @ Lenzerheide, Switzerland.</li>
+    <li><span class="meta">2015</span> Julia for Statisticians. November 2015 @ University of Technology Sydney.</li>
+    <li><span class="meta">2015</span> Probabilistic Numerics for Differential Equations. April 2015 @ University of Warwick, UK.</li>
+    <li><span class="meta">2014</span> Statistical Systems Biology. December 2014 @ University of Warwick, UK.</li>
+    <li><span class="meta">2012</span> Inference and Control for Complex Dynamical Systems. November 2012 @ University of Warwick, UK.</li>
   </ul>
 
   <h2>Media and Engagement</h2>
   <ul class="entry-list">
-    <li>
-      <span class="meta">2025</span> Recorded an interview for the Numberphile podcast.
-      <a href="https://youtu.be/iz8fpVh_rlc" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>Youtube</a>
-    </li>
-    <li>
-      <span class="meta">2025</span> Created a video on Stein's Paradox for the Numberphile channel.
-      <a href="https://youtu.be/FUQwijSDzg8?feature=shared" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>YouTube</a>
-    </li>
-    <li>
-      <span class="meta">2025</span> Interview for Research Professional News.
-      <a href="https://www.researchprofessionalnews.com/rr-funding-insight-2025-2-my-winning-proposal-the-prize-worth-more-than-money/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2025</span> Guy Medal in Bronze of the Royal Statistical Society.
-      <a href="https://rss.org.uk/news-publication/news-publications/2024/general-news/announcing-our-honours-recipients-for-2024/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2023</span> Leverhulme Prize for Mathematics and Statistics.
-      <a href="https://www.ncl.ac.uk/press/articles/latest/2023/10/chrisoateslevehulmeprize/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Programme on Data-Centric Engineering at the Alan Turing Institute.
-      <a href="https://www.turing.ac.uk/uncategorised/new-team-researchers-driving-data-centric-engineering/" class="link-badge type-web"><svg class="badge-icon" aria-hidden="true"><use href="#icon-world"/></svg>Web</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Biennial Research Prize of the Royal Statistical Society.
-      <a href="https://www.statslife.org.uk/news/3204-rss-announces-honours-for-2017" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>RSS</a>
-      <a href="http://acems.org.au/chris-oates-rss-award/" class="link-badge type-other"><svg class="badge-icon" aria-hidden="true"><use href="#icon-external-link"/></svg>ACEMS</a>
-    </li>
-    <li>
-      <span class="meta">2017</span> Gave evidence to the NSW State Parliament on housing regulation. More frivolously, featured in a lobbying advert.
-      <a href="https://youtu.be/rVqhvjXzYnA?list=PL71NUxH8U5HAINuiq6RU7GhNCGwKjNy8B" class="link-badge type-video"><svg class="badge-icon" aria-hidden="true"><use href="#icon-play"/></svg>Video</a>
-    </li>
+    <li><span class="meta">2025</span> Recorded an interview for the Numberphile podcast. <a href="https://youtu.be/iz8fpVh_rlc">[Youtube]</a></li>
+    <li><span class="meta">2025</span> Created a video on Stein's Paradox for the Numberphile channel. <a href="https://youtu.be/FUQwijSDzg8?feature=shared">[YouTube]</a></li>
+    <li><span class="meta">2025</span> Interview for Research Professional News. <a href="https://www.researchprofessionalnews.com/rr-funding-insight-2025-2-my-winning-proposal-the-prize-worth-more-than-money/">[Web]</a></li>
+    <li><span class="meta">2025</span> Guy Medal in Bronze of the Royal Statistical Society. <a href="https://rss.org.uk/news-publication/news-publications/2024/general-news/announcing-our-honours-recipients-for-2024/">[Web]</a></li>
+    <li><span class="meta">2023</span> Leverhulme Prize for Mathematics and Statistics. <a href="https://www.ncl.ac.uk/press/articles/latest/2023/10/chrisoateslevehulmeprize/">[Web]</a></li>
+    <li><span class="meta">2017</span> Programme on Data-Centric Engineering at the Alan Turing Institute. <a href="https://www.turing.ac.uk/uncategorised/new-team-researchers-driving-data-centric-engineering/">[Web]</a></li>
+    <li><span class="meta">2017</span> Biennial Research Prize of the Royal Statistical Society. <a href="https://www.statslife.org.uk/news/3204-rss-announces-honours-for-2017">[RSS]</a> <a href="http://acems.org.au/chris-oates-rss-award/">[ACEMS]</a></li>
+    <li><span class="meta">2017</span> Gave evidence to the NSW State Parliament on housing regulation. More frivolously, featured in a lobbying advert. <a href="https://youtu.be/rVqhvjXzYnA?list=PL71NUxH8U5HAINuiq6RU7GhNCGwKjNy8B">[Video]</a></li>
   </ul>
 
   <footer class="site-footer">
-    <p>&copy; Chris Oates.</p>
+    <p>&copy; Chris Oates. Built as a simple, static, dependency-free website.</p>
   </footer>
 </div>
 </body>

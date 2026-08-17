@@ -1,79 +1,18 @@
 <!DOCTYPE html>
-<!--
-  =============================================================
-  index.html  —  the HOME page (what visitors see at oates.work)
-  =============================================================
-
-  HOW THE WHOLE SITE FITS TOGETHER
-  ---------------------------------
-  This site is just a handful of plain .html files sitting next
-  to a shared style.css file, in one folder:
-
-      oates-work-site/
-        index.html          <- this file (home page)
-        professional.html
-        papers.html
-        books.html
-        presentations.html
-        teaching.html
-        carbon.html
-        contact.html
-        visiting-fellowships.html  <- not linked from the nav yet
-        style.css           <- shared look and feel for all pages
-        images/              <- photos used on the site
-        README.md           <- instructions for editing & publishing
-
-  There is no software to install, no "build" step, and no
-  database. A web browser reads these files directly. To edit
-  the site, you edit the .html files in a plain text editor
-  (Notepad, TextEdit in plain-text mode, VS Code, etc.) and
-  refresh your browser to see the change.
-
-  HOW TO ADD OR CHANGE TEXT ON THIS PAGE
-  ---------------------------------------
-  Text on the page is wrapped in HTML "tags" that look like
-  <p>...</p> or <li>...</li>. You can safely change the words
-  BETWEEN the tags. Do not delete the tags themselves (the bits
-  in angle brackets) unless you know you want to remove that
-  whole element.
-
-  A comment like this one (the whole block you're reading right
-  now) is never shown on the actual web page — comments are just
-  notes for you, the editor. Add your own freely.
-  =============================================================
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Makes the site usable on phones/tablets by matching the page width to the screen width. Leave this as-is. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- This text appears as the browser tab title and in search results. -->
   <title>Chris Oates</title>
-
-  <!-- A short description used by search engines like Google. Edit freely. -->
   <meta name="description" content="Chris Oates — Professor of Statistics, Newcastle University. Computational statistics and probabilistic machine learning.">
-
-  <!-- Loads the shared stylesheet described in style.css. Every page has this same line. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- =========================================================
-     SITE NAVIGATION (top menu) — appears identically on every
-     page. If you rename a page, add a page, or reorder the
-     menu, make the SAME change on this block in every .html
-     file. It is simple copy/paste — there is no way for one
-     page to "share" this block with the others automatically
-     without extra tools, so we keep it deliberately simple.
-
-     The link for the CURRENT page has class="current" added,
-     which underlines it (see style.css section 3). On this
-     page that's the "Home" link.
-     ========================================================= -->
 <nav class="site-nav">
   <ul>
     <li><a href="index.html" class="current">Home</a></li>
+    <li><a href="cv.pdf">CV</a></li>
     <li><a href="professional.html">Professional</a></li>
     <li><a href="papers.html">Papers</a></li>
     <li><a href="books.html">Books</a></li>
@@ -84,17 +23,8 @@
   </ul>
 </nav>
 
-<!-- The .page div just keeps the content a comfortable reading
-     width — see section 1 of style.css. -->
 <div class="page">
 
-  <!-- ===================================================
-       PROFILE: photo + short introduction
-       To change the photo: replace images/chris-oates.jpg
-       with your own file (same filename), or change the
-       filename below to match a new file you add to the
-       images folder.
-       =================================================== -->
   <div class="profile">
     <img src="images/chris-oates.jpg" alt="Photo of Chris Oates">
     <div class="intro">
@@ -107,13 +37,6 @@
     </div>
   </div>
 
-  <!-- ===================================================
-       RECENT NEWS
-       This is just a bulleted list. To add a new item, copy
-       an existing <li>...</li> line and edit the text/link.
-       To remove an item, delete its whole <li>...</li> line.
-       Newest items are usually kept at the top.
-       =================================================== -->
   <h2>Recent News</h2>
   <ul class="entry-list">
     <li><strong>New monograph</strong>: <a href="https://arxiv.org/abs/2603.07467"><strong>Probabilistic Inference and Learning with Stein's Method</strong></a></li>
@@ -127,9 +50,16 @@
     <li>I have been awarded a <a href="https://www.ncl.ac.uk/press/articles/latest/2023/10/chrisoateslevehulmeprize/"><strong>Leverhulme Prize</strong></a>, which will support the team's activities in 2024-2027.</li>
   </ul>
 
-  <!-- ===================================================
-       CURRENT GROUP MEMBERS
-       =================================================== -->
+  <h2>Selected Recent Papers</h2>
+  <ul class="entry-list">
+    <li><a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12500">Robust Generalised Bayesian Inference for Intractable Likelihoods</a></li>
+    <li><a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12503">Optimal Thinning of MCMC Output</a></li>
+    <li><a href="https://arxiv.org/abs/2401.07562">Probabilistic Richardson Extrapolation</a></li>
+    <li><a href="https://arxiv.org/abs/2410.11637">Prediction-Centric Uncertainty Quantification via MMD</a></li>
+    <li><a href="https://arxiv.org/abs/2405.13574">Reinforcement Learning for Adaptive MCMC</a></li>
+  </ul>
+  <p><a href="papers.html">See the full list of papers &rarr;</a></p>
+
   <h2>Current Group Members</h2>
   <ul class="entry-list">
     <li><strong>Wafa M Alahmari</strong> (2025-2029) PhD candidate in the School of Mathematics, Statistics and Physics, Newcastle University, supported by Saudi Arabia. (Co-supervised by <a href="https://www.ncl.ac.uk/maths-physics/people/profile/matthewfisher.html">Dr. Matthew Fisher</a>.)</li>
@@ -142,9 +72,6 @@
     <li><a href="https://geospatialcdt.ac.uk/team/carrow-morris-wiltshire/"><strong>Carrow Morris-Wiltshire</strong></a> (2022-2026) PhD candidate in the Geospatial Systems CDT, Newcastle University, supported by EPSRC. (Co-supervised by <a href="https://www.ncl.ac.uk/engineering/staff/profile/stuartbarr.html">Prof. Stuart Barr</a>.)</li>
   </ul>
 
-  <!-- ===================================================
-       FORMER GROUP MEMBERS
-       =================================================== -->
   <h2>Former Group Members</h2>
   <ul class="entry-list">
     <li><a href="https://scholar.google.fi/citations?hl=en&user=S2inyIsAAAAJ"><strong>Zheyang Shen</strong></a> (2023-2026) Postdoctoral researcher in the School of Mathematics, Statistics and Physics, Newcastle University, supported by EPSRC.</li>
@@ -162,12 +89,8 @@
     <li><a href="https://www.ncl.ac.uk/bigdata/people/people/wangjunyang.html"><strong>Junyang Wang</strong></a> (2017-2021) PhD candidate in the EPSRC Cloud Computing CDT. (Joined Imperial College London as a postdoc in 2021.)</li>
   </ul>
 
-  <!-- ===================================================
-       FOOTER — appears on every page. Feel free to edit the
-       text (e.g. update the year) but there is no need to.
-       =================================================== -->
   <footer class="site-footer">
-    <p>&copy; Chris Oates.</p>
+    <p>&copy; Chris Oates. Built as a simple, static, dependency-free website.</p>
   </footer>
 
 </div>
